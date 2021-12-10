@@ -11,7 +11,7 @@ const SliderWrap = styled.div`
 const Arrow = styled.div`
   width: 50px;
   height: 50px;
-  background-color: #fff7f7;
+  background-color: rgba(0,0,0,.3);
   border-radius: 50%;
   display: flex;
   align-items: center;

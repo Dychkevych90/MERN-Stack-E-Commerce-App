@@ -26,12 +26,16 @@ const InputContainer = styled.div`
   display: flex;
   justify-content: space-between;
   border: 1px solid lightgray;
+  border-radius: 4px;
 `;
 
 const Input = styled.input`
   border: none;
   flex: 8;
   padding-left: 20px;
+  outline: none;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
 `;
 
 const Button = styled.button`
@@ -39,6 +43,8 @@ const Button = styled.button`
   border: none;
   background-color: teal;
   color: white;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
 `;
 
 export { NewsLetterWrap, Input, InputContainer, Button };

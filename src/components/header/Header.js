@@ -22,9 +22,9 @@ const Header = () => {
             </Style.SearchBar>
             
           </div>
-          <div className="center">LAMA.</div>
+          <div className="center">DEVELOPER.</div>
           <div className="right">
-            <button className="registr">Registr</button>
+            <button className="registr">Registration</button>
             <button className="login">Sign In</button>
             <button className="cart_btn">
               <AddShoppingCartIcon />

@@ -51,6 +51,7 @@ const SearchBar = styled.form`
 
   .input {
     border: none;
+    border-radius: 4px;
     width: 100%;
     padding: 5px 20px;
     outline: none;

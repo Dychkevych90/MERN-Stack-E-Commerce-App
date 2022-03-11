@@ -1,7 +1,8 @@
 import React from "react";
 
-import Footer from "../../components/footer/footer";
-import Newsletter from "../../components/newLetter/newsLetter";
+import SelectList from "../../components/layout/select/select";
+
+import CONSTANTS from "../../constants/constants";
 
 import {
   Button,
@@ -22,6 +23,8 @@ import {
   ImgContainer,
   InfoContainer,
 } from './styled';
+
+const { SIZE, COLORS } = CONSTANTS;
 
 const Product = () => {
   return (
@@ -68,8 +71,6 @@ const Product = () => {
           </AddContainer>
         </InfoContainer>
       </Wrapper>
-      <Newsletter />
-      <Footer />
     </div>
   );
 };

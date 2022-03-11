@@ -1,16 +1,17 @@
 import React, {useState} from "react";
 
+import MainButton from '../layout/button/button';
+
 import {
-  Button,
-    Desc,
-    Title,
-    SliderWrap,
-    InfoContainer,
-    Image,
-    ImgContainer,
-    Slide,
-    Wrapper,
-    Arrow
+  Desc,
+  Title,
+  SliderWrap,
+  InfoContainer,
+  Image,
+  ImgContainer,
+  Slide,
+  Wrapper,
+  Arrow
 } from './styled';
 
 import { sliderItems } from "../../data";
@@ -44,7 +45,11 @@ const Slider = () => {
             <InfoContainer>
               <Title>{item.title}</Title>
               <Desc>{item.desc}</Desc>
-              <Button>SHOW NOW</Button>
+              <MainButton 
+                text={ 'SHOW NOW' }
+                fontSize={ '20px' }
+                border={ '1px solid #000' }
+              />
             </InfoContainer>
           </Slide>
         ))}

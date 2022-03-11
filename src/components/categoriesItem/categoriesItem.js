@@ -1,5 +1,7 @@
 import React from 'react'
 
+import MainButton from '../layout/button/button';
+
 import * as Style from "./styled";
 
 const CategoriesItem = ({data}) => {
@@ -8,7 +10,11 @@ const CategoriesItem = ({data}) => {
       <img className={'image'} src={data.img} alt={'categories'} />
       <div className={'info'}>
         <h2 className={'title'}>{data.title}</h2>
-        <button className={'buyNow'}>shop now</button>
+        <MainButton 
+          text={ 'shop now' }
+          backgroundColor={ '#fff' }
+          color={ 'gray' }
+        />
       </div>
     </Style.CategoryWrapItem>
   )

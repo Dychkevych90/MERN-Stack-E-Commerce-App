@@ -25,16 +25,6 @@ const CategoryWrapItem = styled.div`
         color: #fff;
         margin-bottom: 20px;
     }
-
-    .buyNow {
-        padding: 10px;
-        border: none;
-        background-color: #fff;
-        color: gray;
-        font-weight: 600;
-        cursor: pointer;
-        text-transform: uppercase;
-    }
   }
 `;
 

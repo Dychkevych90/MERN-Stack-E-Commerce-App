@@ -68,15 +68,7 @@ const Desc = styled.p`
   max-width: 500px;
 `;
 
-const Button = styled.button`
-  padding: 10px;
-  font-size: 20px;
-  background-color: transparent;
-  cursor: pointer;
-`;
-
 export {
-    Button,
     Desc,
     Title,
     SliderWrap,

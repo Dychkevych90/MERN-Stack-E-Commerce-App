@@ -33,18 +33,18 @@ const Slider = () => {
 
   return (
     <SliderWrap>
-      <Arrow direction="left" onClick={() => handleClick("left")}>
+      <Arrow direction="left" onClick={ () => handleClick("left") }>
         <ArrowLeftIcon />
       </Arrow>
-      <Wrapper slideIndex={slideIndex}>
-        {sliderItems.map((item) => (
-          <Slide bg={item.bg} key={item.id}>
+      <Wrapper slideIndex={ slideIndex }>
+        { sliderItems.map((item) => (
+          <Slide bg={ item.bg } key={ item.id }>
             <ImgContainer>
-              <Image src={item.img} />
+              <Image src={ item.img } />
             </ImgContainer>
             <InfoContainer>
-              <Title>{item.title}</Title>
-              <Desc>{item.desc}</Desc>
+              <Title>{ item.title }</Title>
+              <Desc>{ item.desc }</Desc>
               <MainButton 
                 text={ 'SHOW NOW' }
                 fontSize={ '20px' }
@@ -52,9 +52,9 @@ const Slider = () => {
               />
             </InfoContainer>
           </Slide>
-        ))}
+        )) }
       </Wrapper>
-      <Arrow direction="right" onClick={() => handleClick("right")}>
+      <Arrow direction="right" onClick={ () => handleClick("right") }>
         <ArrowRightIcon />
       </Arrow>
     </SliderWrap>

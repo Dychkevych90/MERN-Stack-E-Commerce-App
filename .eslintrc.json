@@ -1,0 +1,59 @@
+{
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended"
+    ],
+    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "js": true,
+            "globalReturn": false
+        },
+        "ecmaVersion": 2020,
+        "sourceType": "module",
+        "allowImportExportEverywhere": false,
+
+        "requireConfigFile": false,
+        "babelOptions": {
+          "presets": ["@babel/preset-react"]
+       }
+    },
+    "env": {
+      "node": true,
+      "jest": true,
+      "browser": true
+    },
+    "plugins": [
+      "babel",
+      "html",
+      "react",
+      "react-hooks",
+      "sort-destructure-keys"
+    ],
+    "settings": {
+      "html/indent": "+2",
+      "html/report-bad-indent": "error",
+      "react": {
+        "pragma": "React",
+        "version": "16.12.0"
+      }
+    },
+    "rules": {
+      "jsx-quotes": ["error", "prefer-double"],
+      "new-cap": ["error", { "capIsNewExceptions": ["Polymer", "PolymerRedux"], "capIsNewExceptionPattern": "Mixin$" }],
+      "no-unused-vars": ["error", { "args": "after-used", "varsIgnorePattern": "Mixin$" }],
+      "prefer-object-spread": 2,
+      "react-hooks/exhaustive-deps": "warn",
+      "react-hooks/rules-of-hooks": "warn",
+      "react/forbid-component-props":["warn", { "forbid": ["style"] }],
+      "react/forbid-dom-props":["warn", { "forbid": ["style"] }],
+      "react/jsx-closing-bracket-location": ["error", "tag-aligned"],
+      "react/jsx-curly-spacing": [2, { "when": "always", "children": true }],
+      "react/jsx-equals-spacing": ["error", "never"],
+      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+      "react/jsx-tag-spacing": ["error", { "beforeClosing": "never" }],
+      "react/no-array-index-key": "warn",
+      "react/prop-types": 0
+    }
+  }
+  

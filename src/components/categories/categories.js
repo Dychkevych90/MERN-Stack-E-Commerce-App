@@ -9,9 +9,9 @@ const Categories = () => {
   return (
     // <div className="container">
       <Style.CategoryWrap>
-          {categories.map((item, index) => {
-            return <CategoriesItem key={index} data={item} />;
-          })}
+          { categories.map((item, index) => {
+            return <CategoriesItem key={ index } data={ item } />;
+          }) }
       </Style.CategoryWrap>
     // </div>
   );

@@ -7,7 +7,7 @@ const NewsLetter = () => {
   return (
     <div className="container">
       <NewsLetterWrap>
-        <div className='title'>News Letter</div>
+        <div className="title">News Letter</div>
         <div className="desc">Get timely updates from your favorite products.</div>;
 
         <InputContainer>

@@ -1,9 +1,5 @@
 import React from "react";
 
-import SelectList from "../../components/layout/select/select";
-
-import CONSTANTS from "../../constants/constants";
-
 import {
   Button,
   Amount,
@@ -23,8 +19,6 @@ import {
   ImgContainer,
   InfoContainer,
 } from './styled';
-
-const { SIZE, COLORS } = CONSTANTS;
 
 const Product = () => {
   return (

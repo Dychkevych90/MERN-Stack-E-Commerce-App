@@ -14,6 +14,8 @@ const Header = styled.header`
   .center {
     font-weight: bold;
     font-size: 25px;
+    text-decoration: none;
+    color: inherit;
   }
 
   .right {

@@ -1,5 +1,7 @@
 import React from "react";
 
+import {NavLink} from "react-router-dom";
+
 import Announcement from "../announcement/announcement";
 
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
@@ -22,7 +24,9 @@ const Header = () => {
             </Style.SearchBar>
             
           </div>
-          <div className="center">DEVELOPER.</div>
+          
+          <NavLink className="center" to={ "/" }>DEVELOPER.</NavLink>
+         
           <div className="right">
             <button className="registr">Registration</button>
             <button className="login">Sign In</button>

@@ -1,5 +1,7 @@
 import React from "react";
 
+import {Route, Switch} from "react-router";
+
 import Home from "../../pages/home/Home";
 import Header from "../../components/header/Header";
 import ProductsPage from "../../pages/products/products";
@@ -12,10 +14,14 @@ const App = () => {
   return (
     <>
       <Header />
-      <Home />
-      { /* <ProductsPage/> */ }
-      { /* <Product/> */ }
-      { /* <Cart/> */ }
+
+      <Switch>
+        <Route exact path={ "/" } component={ Home } />
+        <Route exact path={ "/products" } component={ ProductsPage } />
+        <Route exact path={ "/product" } component={ Product } />
+        <Route exact path={ "/cart" } component={ Cart } />
+      </Switch>  
+
       <NewsLetter />
       <Footer />
     </>

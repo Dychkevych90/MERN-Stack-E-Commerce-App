@@ -4,8 +4,9 @@ import {NavLink} from "react-router-dom";
 
 import Announcement from "../announcement/announcement";
 
-import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import SearchIcon from "@mui/icons-material/Search";
+import icons from "../../constants/icons";
+
+const { AddShoppingCartIcon, SearchIcon, FavoriteBorderIcon } = icons;
 
 import * as Style from "./styled";
 
@@ -31,7 +32,11 @@ const Header = () => {
             <button className="registr">Registration</button>
             <button className="login">Sign In</button>
             <button className="cart_btn">
-              <AddShoppingCartIcon />
+              <AddShoppingCartIcon className="icon" />
+              <div className="count" />
+            </button>
+            <button className="cart_btn">
+              <FavoriteBorderIcon className="icon" />
               <div className="count" />
             </button>
           </div>

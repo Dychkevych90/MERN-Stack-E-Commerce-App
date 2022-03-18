@@ -40,7 +40,7 @@
     },
     "rules": {
       "jsx-quotes": ["error", "prefer-double"],
-      "no-unused-vars": ["error", { "args": "after-used", "varsIgnorePattern": "Mixin$" }],
+      "no-unused-vars": ["error", { "args": "after-used", "ignoreRestSiblings": false }],
       "prefer-object-spread": 2,
       "react-hooks/exhaustive-deps": "warn",
       "react-hooks/rules-of-hooks": "warn",

@@ -10,9 +10,9 @@ const Products = () => {
   return (
     <Style.ProductsWrap>
       {
-        popularProducts.map((item, key) => {
+        popularProducts.map((item) => {
           return (
-            <ProductItem data={ item } key={ key } />
+            <ProductItem data={ item } key={ item.id } />
           )
         })
       }

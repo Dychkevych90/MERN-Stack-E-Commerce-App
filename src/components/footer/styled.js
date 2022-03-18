@@ -17,7 +17,7 @@ const SocialContainer = styled.div`
   display: flex;
 `;
 
-const SocialIcon = styled.div`
+const SocialIcon = styled.a`
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -28,6 +28,12 @@ const SocialIcon = styled.div`
   justify-content: center;
   margin-right: 20px;
   cursor: pointer;
+  transition: .5s;
+
+  &:hover {
+    transition: .5s;
+    transform: scale(1.2);
+  }
 `;
 
 const Center = styled.div`

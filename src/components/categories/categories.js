@@ -7,13 +7,11 @@ import * as Style from "./styled";
 
 const Categories = () => {
   return (
-    // <div className="container">
-      <Style.CategoryWrap>
-          { categories.map((item, index) => {
-            return <CategoriesItem key={ index } data={ item } />;
-          }) }
-      </Style.CategoryWrap>
-    // </div>
+    <Style.CategoryWrap>
+      { categories.map((item) => {
+        return <CategoriesItem key={ item.id } data={ item } />;
+      }) }
+    </Style.CategoryWrap>
   );
 };
 

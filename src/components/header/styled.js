@@ -33,11 +33,13 @@ const Header = styled.header`
       font-weight: 500;
     }
     .cart_btn {
-      margin-right: 0;
-      svg {
-        width: 20px;
-        height: 20px;
-      }
+      margin-right: 20px;
+    }
+
+    & .icon {
+      width: 20px;
+      height: 20px;
+      object-fit: cover;
     }
   }
 `;

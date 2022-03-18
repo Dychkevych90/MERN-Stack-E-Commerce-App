@@ -14,3 +14,12 @@
   background-color: #fcf5f5;
 }
 
+body.hidden-scroll {
+  overflow: hidden;
+  max-height: 100vh;
+}
+
+body.hidden-scroll::-webkit-scrollbar {
+  display: none;
+}
+

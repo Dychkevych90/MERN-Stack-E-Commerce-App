@@ -2,6 +2,8 @@ import React, {useState} from "react";
 
 import MainButton from '../layout/button/button';
 
+import icons from "../../constants/icons";
+
 import {
   Desc,
   Title,
@@ -16,8 +18,7 @@ import {
 
 import { sliderItems } from "../../data";
 
-import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
-import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+const { ArrowLeftIcon, ArrowRightIcon } = icons;
 
 const Slider = () => {
 

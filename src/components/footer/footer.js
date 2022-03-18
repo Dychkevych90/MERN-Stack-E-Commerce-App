@@ -1,5 +1,9 @@
 import React from "react";
 
+import icons from "../../constants/icons";
+
+const { TelegramIcon } = icons;
+
 import {
   Center,
   ContactItem,
@@ -25,13 +29,17 @@ const Footer = () => {
           humour, or randomised words which don’t look even slightly believable.
         </Desc>
         <SocialContainer>
-          <SocialIcon color="3B5999">
+          <SocialIcon color="3B5999" href="#" target={ '_blank' }>
+            <TelegramIcon />
           </SocialIcon>
-          <SocialIcon color="E4405F">
+          <SocialIcon color="E4405F" href="#" target={ '_blank' }>
+            <TelegramIcon />
           </SocialIcon>
-          <SocialIcon color="55ACEE">
+          <SocialIcon color="55ACEE" href="#" target={ '_blank' }>
+            <TelegramIcon />
           </SocialIcon>
-          <SocialIcon color="E60023">
+          <SocialIcon color="E60023" href="#" target={ '_blank' }>
+            <TelegramIcon />
           </SocialIcon>
         </SocialContainer>
       </Left>

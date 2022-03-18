@@ -1,23 +1,44 @@
-import React from "react";
+import React, {useState} from "react";
 
-import { ProductItemWrap, Info } from "./styled";
-import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import SearchIcon from "@mui/icons-material/Search";
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import icons from "../../constants/icons";
+
+import { ProductItemWrap, Info, FullScreenImage } from "./styled";
+
+const { AddShoppingCartIcon, SearchIcon, FavoriteBorderIcon, CloseIcon } = icons;
 
 const ProductItem = ({ data }) => {
+  const [ ShowFullImage, setShowFullImage ] = useState(false)
+
+  const isShowFullImage = () => {
+    const body = document.querySelector('body');
+    body.classList.toggle("hidden-scroll");
+
+    setShowFullImage ( !ShowFullImage )
+  }
+  
   return (
-    <ProductItemWrap>
+    <>
+      <ProductItemWrap>
       <div className={ 'circle' } />
       <img src={ data.img } className={ 'product-image' } alt="product" />
 
       <Info>
         <div className={ 'icon' }><AddShoppingCartIcon /></div>
-        <div className={ 'icon' }><SearchIcon /></div>
+        <button onClick={ isShowFullImage } className={ 'icon' }><SearchIcon /></button>
         <div className={ 'icon' }><FavoriteBorderIcon /></div>
       </Info>
       
-    </ProductItemWrap>
+      </ProductItemWrap>
+
+      { ShowFullImage && (
+        <FullScreenImage>
+          <img src={ data.img } />
+          <button onClick={ isShowFullImage } className={ "close-button" }>
+            <CloseIcon />
+          </button>
+      </FullScreenImage>
+      ) }
+    </>
   )
 };
 

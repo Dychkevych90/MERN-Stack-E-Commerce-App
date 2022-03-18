@@ -1,18 +1,34 @@
 import React from 'react'
 
-import { ButtonWrap } from './styled';
+import { ButtonWrap, LinkWrap } from './styled';
 
-const MainButton = ( { text, color, width, fontSize, backgroundColor, border, } ) => {
+const MainButton = ( { text, color, width, fontSize, backgroundColor, border, link = false, } ) => {
   return (
-    <ButtonWrap 
-      color={ color } 
-      width={ width }
-      fontSize={ fontSize }
-      backgroundColor={ backgroundColor }
-      border={ border }
-    >
-      { text }
-    </ButtonWrap>
+    <>
+      { link ? (
+        <LinkWrap 
+          to={ '/products' }
+          color={ color } 
+          width={ width }
+          fontSize={ fontSize }
+          backgroundColor={ backgroundColor }
+          border={ border }
+        >
+          { text }
+        </LinkWrap>  
+      ) : (
+          <ButtonWrap 
+            color={ color } 
+            width={ width }
+            fontSize={ fontSize }
+            backgroundColor={ backgroundColor }
+            border={ border }
+          >
+            { text }
+          </ButtonWrap>
+        )
+      }
+    </>
   )
 }
 

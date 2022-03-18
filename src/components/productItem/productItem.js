@@ -36,7 +36,7 @@ const ProductItem = ({ data }) => {
           <button onClick={ isShowFullImage } className={ "close-button" }>
             <CloseIcon />
           </button>
-      </FullScreenImage>
+        </FullScreenImage>
       ) }
     </>
   )

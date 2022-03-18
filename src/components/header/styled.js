@@ -23,7 +23,7 @@ const Header = styled.header`
     align-items: center;
     justify-content: space-between;
 
-    button {
+    a {
       text-transform: uppercase;
       border: none;
       background-color: transparent;
@@ -31,6 +31,8 @@ const Header = styled.header`
       margin-right: 20px;
       cursor: pointer;
       font-weight: 500;
+      text-decoration: none;
+      color: #000;
     }
     .cart_btn {
       margin-right: 20px;

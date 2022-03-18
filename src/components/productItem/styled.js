@@ -77,7 +77,7 @@ const FullScreenImage = styled.div`
   min-height: 100vh;
   background-color: rgba(0,0,0,.5);
   transition: all .5s;
-  z-index: 10;
+  z-index: 100;
   
   img {
     width: 50%;

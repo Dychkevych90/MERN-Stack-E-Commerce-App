@@ -58,6 +58,10 @@ const InfoContainer = styled.div`
 
 const Title = styled.h1`
   font-size: 70px;
+
+  @media (max-width: 1250px) {
+    font-size: 55px;
+  }
 `;
 
 const Desc = styled.p`
@@ -66,6 +70,11 @@ const Desc = styled.p`
   font-weight: 500;
   letter-spacing: 3px;
   max-width: 500px;
+
+  @media (max-width: 1250px) {
+    font-size: 17px;
+    max-width: 400px;
+  }
 `;
 
 export {

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { mobile } from '../../responsive';
 
 const NewsLetterWrap = styled.div`
   height: 60vh;
@@ -11,11 +12,21 @@ const NewsLetterWrap = styled.div`
   .title {
     font-size: 70px;
     margin-bottom: 20px;
+
+    @media (max-width: 500px){
+      font-size: 50px;
+    }
   }
   .desc {
     font-size: 24px;
     font-weight: 300;
     margin-bottom: 20px;
+    ${mobile({ textAlign: "center" })}
+
+    @media (max-width: 500px){
+      font-size: 18px;
+      text-align: center;
+    }
   }
 `;
 
@@ -27,6 +38,11 @@ const InputContainer = styled.div`
   justify-content: space-between;
   border: 1px solid lightgray;
   border-radius: 4px;
+  ${mobile({ width: "80%" })}
+
+  @media (max-width: 500px){
+      width: 100%;
+    }
 `;
 
 const Input = styled.input`

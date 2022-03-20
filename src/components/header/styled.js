@@ -11,11 +11,21 @@ const Header = styled.header`
   justify-content: space-between;
   padding: 10px 25px;
 
+  .left {
+    @media (max-width: 725px){
+      display: none;
+    }
+  }
+
   .center {
     font-weight: bold;
     font-size: 25px;
     text-decoration: none;
     color: inherit;
+
+    @media (max-width: 500px){
+      font-size: 22px;
+    }
   }
 
   .right {
@@ -33,6 +43,10 @@ const Header = styled.header`
       font-weight: 500;
       text-decoration: none;
       color: #000;
+
+      @media (max-width: 500px){
+      font-size: 12px;
+      }
     }
     .cart_btn {
       margin-right: 20px;
@@ -43,6 +57,10 @@ const Header = styled.header`
       height: 20px;
       object-fit: cover;
     }
+  }
+
+  @media (max-width: 500px){
+    padding: 0;
   }
 `;
 

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { mobile } from "../../responsive";
 
 const CategoryWrapItem = styled.div`
   flex: 1;
@@ -10,6 +11,7 @@ const CategoryWrapItem = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
+    ${mobile({ height: "20vh" })}
   }
 
   .info {
@@ -24,6 +26,11 @@ const CategoryWrapItem = styled.div`
     .title {
         color: #fff;
         margin-bottom: 20px;
+        white-space: nowrap;
+
+        @media (max-width: 800px) {
+          font-size: 20px;
+        }
     }
   }
 `;

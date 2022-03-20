@@ -33,7 +33,8 @@ const Slider = () => {
   };
 
   return (
-    <SliderWrap>
+    <div className={ "container" }>
+      <SliderWrap>
       <Arrow direction="left" onClick={ () => handleClick("left") }>
         <ArrowLeftIcon />
       </Arrow>
@@ -59,6 +60,7 @@ const Slider = () => {
         <ArrowRightIcon />
       </Arrow>
     </SliderWrap>
+    </div>
   );
 };
 

@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { mobile } from "../../responsive";
 
@@ -31,6 +32,18 @@ const Title = styled.h1`
 const Form = styled.form`
   display: flex;
   flex-wrap: wrap;
+
+  button {
+    margin-top: 20px;
+  }
+
+  .bottom-section {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding-top: 20px;
+  }
 `;
 
 const Input = styled.input`
@@ -40,26 +53,14 @@ const Input = styled.input`
   padding: 10px;
 `;
 
-const Agreement = styled.span`
-  font-size: 12px;
-  margin: 20px 0px;
-`;
-
-const Button = styled.button`
-  width: 40%;
+const Button = styled(NavLink)`
+  width: fit-content;
   border: none;
-  padding: 15px 20px;
-  background-color: teal;
-  color: white;
+  color: #000;
   cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+  margin-left: 20px;
 `;
 
-export {
-    Button,
-    Agreement,
-    Input,
-    Wrapper,
-    Title,
-    Form,
-    Container
-}
+export { Button, Input, Wrapper, Title, Form, Container };

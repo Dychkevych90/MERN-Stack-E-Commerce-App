@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import {mobile} from "../../responsive";
 
@@ -50,7 +51,7 @@ const Button = styled.button`
   margin-bottom: 10px;
 `;
 
-const Link = styled.a`
+const Link = styled(NavLink)`
   margin: 5px 0px;
   font-size: 12px;
   text-decoration: underline;

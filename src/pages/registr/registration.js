@@ -1,5 +1,7 @@
 import React from "react";
 
+import MainButton from '../../components/layout/button/button';
+
 import * as Style from './styled';
 
 const Register = () => {
@@ -12,14 +14,20 @@ const Register = () => {
           <Style.Input placeholder="last name" />
           <Style.Input placeholder="username" />
           <Style.Input placeholder="email" />
-          <Style.Input placeholder="password" />
-          <Style.Input placeholder="confirm password" />
-          <Style.Agreement>
-            By creating an account, I consent to the processing of my personal
-            data in accordance with the <b>PRIVACY POLICY</b>
-          </Style.Agreement>
-          <Style.Button>CREATE</Style.Button>
-          <Style.Button>Sign in</Style.Button>
+          <Style.Input placeholder="password" type={ "number" } />
+          <Style.Input placeholder="confirm password" type={ "number" } />
+          
+          <MainButton
+            text={ "CREATE" }
+            width={ "100%" }
+            backgroundColor={ "teal" }
+            color={ "#fff" } 
+          />
+
+          <div className={ "bottom-section" }>
+            <span>Do you have an account?</span>
+            <Style.Button to={ "/login" }>Sign in</Style.Button>
+          </div>
         </Style.Form>
       </Style.Wrapper>
     </Style.Container>

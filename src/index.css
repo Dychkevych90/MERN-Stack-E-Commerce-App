@@ -14,6 +14,12 @@
   background-color: #fcf5f5;
 }
 
+@media (max-width: 1150px) {
+  .container {
+    padding: 0 20px;
+  }
+}
+
 .fake-header {
   width: 100%;
   height: 90px;
@@ -44,5 +50,10 @@ body.hidden-scroll::-webkit-scrollbar {
   padding-top: 0px;
   padding-bottom: 0px;
   transition: .5s;
+}
+
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 

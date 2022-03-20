@@ -8,6 +8,10 @@ const CategoryWrap = styled.div`
     position: relative;
     padding: 0 20px;
     background-color: #fbf0f4;
+
+    @media (max-width: 650px) {
+      flex-direction: column;
+    }
 `
 
 export {

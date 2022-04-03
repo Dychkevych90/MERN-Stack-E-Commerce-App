@@ -9,12 +9,14 @@ require("dotenv").config();
 const connection = require('./db');
 const express = require('express');
 const app = express();
+const cors = require("cors");
 
 const { API_PORT } = process.env;
 
 //connection to database
 connection();
 
+app.use(cors());
 app.use(express.json({extend: true}))
 app.use('/api/users', userRoute);
 app.use('/api/auth', authRoute);

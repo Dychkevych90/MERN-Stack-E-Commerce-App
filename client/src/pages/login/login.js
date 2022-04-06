@@ -11,21 +11,21 @@ import * as Style from './styled';
 const Login = () => {
   const dispatch = useDispatch();
 
-  const onLogin = async (e) => {
+  const onLogin = async ( e ) => {
     e.preventDefault();
 
-    const username = e.target.username.value
-    const password =  e.target.password.value
+    const username = e.target.username.value;
+    const password =  e.target.password.value;
 
     const server = new ServerSettings();
 
     try {
       const res = await axios.post(`${server.getApi()}auth/login`, { username, password });
       dispatch( setUser(res.data) )
-      window.localStorage.setItem('token', res.data.accessToken)
-      console.log(res.data)
+      res.data &&
+        window.localStorage.setItem('token', JSON.stringify( { accessToken: res.data.accessToken } ) );
     } catch (error) {
-      console.log(error)
+      console.log(error, 'wrong credentials!')
     }
   };
 

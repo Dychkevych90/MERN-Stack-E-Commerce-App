@@ -8,7 +8,7 @@ const { AddShoppingCartIcon, SearchIcon, FavoriteBorderIcon, CloseIcon } = icons
 
 const ProductItem = ({ data }) => {
   const [ ShowFullImage, setShowFullImage ] = useState(false)
-  console.log(data)
+
   const isShowFullImage = () => {
     const body = document.querySelector('body');
     body.classList.toggle("hidden-scroll");

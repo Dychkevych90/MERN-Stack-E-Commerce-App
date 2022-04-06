@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import {Route, Switch, useLocation } from "react-router";
-
+import { useDispatch, useSelector } from "react-redux";
 import Home from "../../pages/home/Home";
 import Header from "../../components/header/Header";
 import ProductsPage from "../../pages/products/products";

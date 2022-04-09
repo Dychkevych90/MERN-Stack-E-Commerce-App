@@ -1,12 +1,16 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { mobile } from "../../responsive";
+import bg from '../../media/image/hu477.jpg'
+
 
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
-  background-color: teal;
+  background-image: url( ${bg} );
   background-size: cover;
+  background-position: center;
+  background-color: #008080bf;
   display: flex;
   align-items: center;
   justify-content: center;

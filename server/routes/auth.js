@@ -6,6 +6,15 @@ const jwt = require("jsonwebtoken");
 
 //REGISTER
 router.post('/register', async (req, res) => {
+  const accessToken = jwt.sign(
+    {
+        id: req.body._id,
+        isAdmin: req.body.isAdmin,
+    },
+    process.env.JWT_SEC,
+        { expiresIn:"3d" }
+    );
+
   const newUser = new User({
     username: req.body.username,
     email: req.body.email,
@@ -13,6 +22,7 @@ router.post('/register', async (req, res) => {
       req.body.password,
       process.env.PASS_SEC
     ).toString(),
+    accessToken: accessToken,
   });
 
   try {

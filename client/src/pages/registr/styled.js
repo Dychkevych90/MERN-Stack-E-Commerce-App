@@ -31,7 +31,7 @@ const Title = styled.h1`
 
 const Form = styled.form`
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
 
   button {
     width: 100%;
@@ -56,9 +56,14 @@ const Form = styled.form`
 
 const Input = styled.input`
   flex: 1;
-  min-width: 40%;
-  margin: 20px 10px 0px 0px;
+  width: 100%;
   padding: 10px;
+  outline: none;
+  padding: 15px;
+  height: 50px;
+  margin-bottom: 20px;
+  border: 2px solid #DDE1E6;
+  border-radius: 8px;
 `;
 
 const Button = styled(NavLink)`

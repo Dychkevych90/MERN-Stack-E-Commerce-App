@@ -13,6 +13,7 @@ const MainInput = (
     defaultValue,
     readOnly,
     grey,
+    onChangeHandler = () => null,
   }
 ) => {
 
@@ -35,7 +36,7 @@ const MainInput = (
         name={name}
         required={required}
         type={type}
-        onChange={(e) => onChange(e)}
+        onChange={ (e) => onChange(e) }
         defaultValue={defaultValue}
         readOnly={readOnly}
         autoComplete={'off'}

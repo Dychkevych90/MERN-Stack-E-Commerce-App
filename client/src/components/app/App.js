@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
-import { Route, Switch, useLocation } from "react-router";
+import React, { useEffect, useState } from "react";
+import { Route, Switch, Redirect } from "react-router";
+import axios from "axios";
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import Home from "../../pages/home/Home";
 import Header from "../../components/header/Header";
@@ -14,25 +15,41 @@ import ScrollToTop from "../scrollToTop/scrollToTop";
 import Login from "../../pages/login/login";
 import Register from "../../pages/registr/registration";
 
-const App = () => {
-  const location = useLocation();
-  const currentUser = useSelector((state) => state.user);
-  const getLocation =
-    location.pathname.split("/")[1] === "login" ||
-    location.pathname.split("/")[1] === "registration";
+import { setAllUsers } from '../../redux-store/action';
 
-  const _checkToken = async () => {
-    const token = JSON.parse(localStorage.getItem("token"));
-    console.log('token', token)
-  };
+import ServerSettings from "../../services/serverSettings";
+
+const App = () => {
+  const dispatch = useDispatch();
+
+  const currentUser = useSelector( ( state ) => state.user);
+  const getAllUsers = useSelector( ( state ) => state.users )
+  const isLoadingSuccessful = useSelector( ( state ) => state.isFetching )
+  console.log('currentUser', currentUser, 'getAllUsers', getAllUsers)
 
   useEffect(() => {
-    _checkToken().catch( ( error ) => console.error( error ) );
+  /* Get all users from server */
+  const setUsers = async () => {
+    const server = new ServerSettings();
+
+    try {
+      if( currentUser.isAdmin ) {
+        const res = await axios.get(`${server.getApi()}users/`);
+        dispatch( setAllUsers( res.data ) )
+      } else {
+        dispatch( setAllUsers( [] ) )
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  };
+
+  setUsers().catch((error) => console.error(error));
   }, [ currentUser ]);
 
   return (
     <>
-      {!getLocation && (
+      { isLoadingSuccessful && (
         <>
           <Header />
           <ScrollToTop />
@@ -40,15 +57,33 @@ const App = () => {
       )}
 
       <Switch>
-        <Route exact path={"/"} component={Home} />
+        <Route exact path={"/"} >
+        { 
+          isLoadingSuccessful
+            ? <Home/>
+            : <Redirect to={'/login'}/>
+        }
+        </Route>
         <Route exact path={"/products"} component={ProductsPage} />
         <Route exact path={"/product"} component={Product} />
         <Route exact path={"/cart"} component={Cart} />
-        <Route exact path={"/login"} component={Login} />
-        <Route exact path={"/registration"} component={Register} />
+        <Route exact path={"/login"} >
+          { 
+            isLoadingSuccessful
+              ? <Redirect to={'/'}/>
+              : <Login/>
+          }
+        </Route>
+        <Route exact path={"/registration"} >
+        { 
+            isLoadingSuccessful
+              ? <Redirect to={'/'}/>
+              : <Register/>
+        }
+        </Route>
       </Switch>
 
-      {!getLocation && (
+      { isLoadingSuccessful && (
         <>
           <NewsLetter />
           <Footer />

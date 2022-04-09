@@ -1,29 +1,49 @@
 import React, { useEffect } from "react";
-
 import {NavLink} from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 
 import Announcement from "../announcement/announcement";
 
+import { isLoadingSuccessful, setUser } from '../../redux-store/action';
+
 import icons from "../../constants/icons";
 
-const { AddShoppingCartIcon, SearchIcon, FavoriteBorderIcon } = icons;
+const {
+  AddShoppingCartIcon,
+  SearchIcon,
+  FavoriteBorderIcon,
+  LogoutIcon
+} = icons;
 
 import * as Style from "./styled";
 
 const Header = () => {
+  const currentUser = useSelector( ( state ) => state.user);
+  const isLoading = useSelector( ( state ) => state.isFetching )
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    window.addEventListener('scroll', isSticky);
+    window.addEventListener('scroll', isHeaderSticky);
     return () =>
-      window.removeEventListener('scroll', isSticky);
+      window.removeEventListener('scroll', isHeaderSticky);
   });
 
      
-  const isSticky = () => {
+  const isHeaderSticky = () => {
     const header = document.querySelector('.header-section');
     const scrollTop = window.scrollY;
     scrollTop >= 10 ? header.classList.add('is-sticky') : header.classList.remove('is-sticky');
   };
+
+  const LogOut = (e) => {
+    e.preventDefault();
+    if (localStorage.getItem('token')) {
+      localStorage.clear();
+      dispatch( isLoadingSuccessful( false ) );
+      dispatch( setUser( {} ) );
+    }
+  }
 
   return (
     <>
@@ -45,8 +65,14 @@ const Header = () => {
             <NavLink className="center" to={ "/" }>DEVELOPER.</NavLink>
           
             <div className="right">
-              <NavLink to={ "/registration" } className="registr">Registration</NavLink>
-              <NavLink to={ "/login" } className="login">Sign In</NavLink>
+            {
+              !isLoading && (
+                <>
+                  <NavLink to={ "/registration" } className="registr">Registration</NavLink>
+                  <NavLink to={ "/login" } className="login">Sign In</NavLink>
+                </>
+              )
+            }
               <NavLink to={ "/" } className="cart_btn">
                 <AddShoppingCartIcon className="icon" />
                 <div className="count" />
@@ -55,6 +81,16 @@ const Header = () => {
                 <FavoriteBorderIcon className="icon" />
                 <div className="count" />
               </NavLink>
+              {
+                isLoading && (
+                  <button
+                    className="logout-btn"
+                    onClick={ ( e ) => LogOut( e ) }
+                  >
+                    <LogoutIcon/>
+                  </button>
+                )
+              }
             </div>
           </Style.Header>
         </div>

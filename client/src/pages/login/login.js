@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 
-import { setUser } from '../../redux-store/action/index';
+import * as DefaultUserAction from '../../redux-store/action';
 
 import ServerSettings from '../../services/serverSettings';
 
 import * as Style from './styled';
+import MainInput from "../../components/layout/mainInput/mainInput";
 
 const Login = () => {
+  const [disabled, setDisabled] = useState( true )
+  const [validation, setValidation] = useState( false )
+
   const dispatch = useDispatch();
 
   const onLogin = async ( e ) => {
@@ -20,12 +24,15 @@ const Login = () => {
     const server = new ServerSettings();
 
     try {
-      const res = await axios.post(`${server.getApi()}auth/login`, { username, password });
-      dispatch( setUser(res.data) )
-      res.data &&
+      const res = await axios.post(`${server.getApi()}auth/login`, { username, password } );
+      if ( res.data ) {
+        dispatch( DefaultUserAction.setUser( res.data) );
+        dispatch( DefaultUserAction.isLoadingSuccessful( true ) );
         window.localStorage.setItem('token', JSON.stringify( { accessToken: res.data.accessToken } ) );
+      }
     } catch (error) {
       console.log(error, 'wrong credentials!')
+      setValidation( true )
     }
   };
 
@@ -34,15 +41,20 @@ const Login = () => {
       <Style.Wrapper>
         <Style.Title>SIGN IN</Style.Title>
         <Style.Form onSubmit={ ( e ) => onLogin( e ) }>
-          <Style.Input
-            name="username"
-            placeholder="username"
+  
+          <MainInput
+            label={'username'}
+            name={'username'}
+            validation={ validation }
           />
-          <Style.Input
-            placeholder="password"
-            name="password"
-            type="password"
+
+          <MainInput
+            label={'password'}
+            name={'password'}
+            errorText={'wrong credentials!'}
+            validation={ validation }
           />
+
           <Style.Button
             type={'submit'}
           >

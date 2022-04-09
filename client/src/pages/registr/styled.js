@@ -5,12 +5,7 @@ import { mobile } from "../../responsive";
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(
-      rgba(255, 255, 255, 0.5),
-      rgba(255, 255, 255, 0.5)
-    ),
-    url("https://images.pexels.com/photos/6984661/pexels-photo-6984661.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
-      center;
+  background-color: teal;
   background-size: cover;
   display: flex;
   align-items: center;
@@ -21,12 +16,17 @@ const Wrapper = styled.div`
   width: 40%;
   padding: 20px;
   background-color: white;
+  min-width: 350px;
+  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 19px -2px rgba(0, 0, 0, 0.78);
   ${mobile({ width: "75%" })}
 `;
 
 const Title = styled.h1`
   font-size: 24px;
   font-weight: 300;
+  margin-bottom: 20px;
 `;
 
 const Form = styled.form`
@@ -34,7 +34,15 @@ const Form = styled.form`
   flex-wrap: wrap;
 
   button {
-    margin-top: 20px;
+    width: 100%;
+    border: none;
+    padding: 15px 20px;
+    background-color: #217417b5;
+    border-radius: 4px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 10px;
   }
 
   .bottom-section {

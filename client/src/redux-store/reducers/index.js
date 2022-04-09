@@ -1,10 +1,11 @@
 const initialState = {
   user: {},
-  users: []
+  users: [],
+  isFetching: false,
 }
 
-const reducer = ( action, state = initialState ) => {
-    switch ( action ) {
+const reducer = ( state = initialState, action ) => {
+    switch ( action.type ) {
       case 'GET_ALL_USERS':
         return {
           ...state,
@@ -15,6 +16,12 @@ const reducer = ( action, state = initialState ) => {
         return {
           ...state,
           user: action.user
+        }
+
+      case 'IS_LOADING_SUCCESSFUL':
+        return {
+          ...state,
+          isFetching: action.isFetching
         }
 
       default:

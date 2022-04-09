@@ -1,6 +1,7 @@
 import React from "react";
 
 import MainButton from '../../components/layout/button/button';
+import MainInput from '../../components/layout/mainInput/mainInput';
 
 import * as Style from './styled';
 
@@ -10,12 +11,27 @@ const Register = () => {
       <Style.Wrapper>
         <Style.Title>CREATE AN ACCOUNT</Style.Title>
         <Style.Form>
-          <Style.Input placeholder="name" />
-          <Style.Input placeholder="last name" />
-          <Style.Input placeholder="username" />
-          <Style.Input placeholder="email" />
-          <Style.Input placeholder="password" type={ "number" } />
-          <Style.Input placeholder="confirm password" type={ "number" } />
+        
+          <MainInput
+            label={'username'}
+            name={'username'}
+          />
+
+          <MainInput
+            label={'password'}
+            name={'password'}
+            type={'password'}
+          />
+
+          <MainInput
+            label={'email'}
+            name={'email'}
+          />
+
+          <MainInput
+            label={'confirm password'}
+            name={'confirm password'}
+          />
           
           <MainButton
             text={ "CREATE" }

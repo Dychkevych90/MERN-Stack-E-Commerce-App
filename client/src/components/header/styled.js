@@ -9,7 +9,7 @@ const Header = styled.header`
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 25px;
+  padding: 10px 0;
 
   .left {
     @media (max-width: 725px){
@@ -55,7 +55,18 @@ const Header = styled.header`
     & .icon {
       width: 20px;
       height: 20px;
-      object-fit: cover;
+      object-fit: contain;
+    }
+
+    .logout-btn {
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+        & .icon {
+        width: 20px;
+        height: 20px;
+        object-fit: contain;
+      }
     }
   }
 

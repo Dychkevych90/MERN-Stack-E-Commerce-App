@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import {NavLink} from "react-router-dom";
 
 const ButtonWrap = styled.button`
-  padding: 10px;
+  padding: 15px;
   font-size: ${ props => props.fontSize ? props.fontSize : '14px' };
   background-color: transparent;
   cursor: pointer;
@@ -12,6 +12,7 @@ const ButtonWrap = styled.button`
   background-color: ${ props => props.backgroundColor ? props.backgroundColor : 'transparent' };
   border: ${ props => props.border ? props.border : 'none' };
   width: ${ props => props.width ? props.width : 'fit-content' };
+  border-radius: 8px;
 `
 
 const LinkWrap = styled(NavLink)`

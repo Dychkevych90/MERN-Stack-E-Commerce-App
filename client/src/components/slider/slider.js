@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 
 import MainButton from '../layout/button/button';
+import CountdownTimer from '../countdown-timer/timer';
 
 import icons from "../../constants/icons";
 
@@ -43,14 +44,23 @@ const Slider = () => {
           <Slide bg={ item.bg } key={ item.id }>
             <ImgContainer>
               <Image src={ item.img } />
+
+              <div className="price-block">
+                Starting at <br/><span>${item.price.split('.')[0]}<sup>{item.price.split('.')[1]}</sup></span>
+              
+                <CountdownTimer time={ 25000000 }/>
+              </div>
             </ImgContainer>
             <InfoContainer>
               <Title>{ item.title }</Title>
               <Desc>{ item.desc }</Desc>
               <MainButton 
                 text={ 'SHOW NOW' }
-                fontSize={ '20px' }
-                border={ '1px solid #000' }
+                fontSize={ '14px' }
+                border={ 'none' }
+                backgroundColor={'teal'}
+                width={'150px'}
+                color={'#fff'}
               />
             </InfoContainer>
           </Slide>

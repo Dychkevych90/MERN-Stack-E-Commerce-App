@@ -61,7 +61,7 @@ const Login = () => {
             LOGIN
           </Style.Button>
 
-          <Style.Link to={ "/" }>DO NOT YOU REMEMBER THE PASSWORD?</Style.Link>
+          <Style.Link to={'/'}>DO NOT YOU REMEMBER THE PASSWORD?</Style.Link>
           <Style.Link to={ "/registration" }>CREATE A NEW ACCOUNT</Style.Link>
         </Style.Form>
       </Style.Wrapper>

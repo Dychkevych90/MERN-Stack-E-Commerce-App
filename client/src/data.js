@@ -1,24 +1,34 @@
+import headphones from './media/image/headphones1.png'
+import phone from './media/image/phone.png'
+import samsung from './media/image/Samsung.png'
+
 export const sliderItems = [
     {
       id: 1,
-      img: "https://i.ibb.co/cXFnLLV/3.png",
-      title: "SUMMER SALE",
-      desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
+      img: headphones,
+      smallTitle: 'Hot Items Today',
+      title: "Award-winning Headphones",
+      desc: " GET FLAT 30% OFF FOR NEW ARRIVALS.",
       bg: "f5fafd",
+      price: '199.99'
     },
     {
       id: 2,
-      img: "https://i.ibb.co/DG69bQ4/2.png",
-      title: "AUTUMN COLLECTION",
-      desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
+      img: phone,
+      smallTitle: 'Hot Items Today',
+      title: "New model XL series",
+      desc: "GET FLAT 30% OFF FOR NEW ARRIVALS.",
       bg: "fcf1ed",
+      price: '39.99'
     },
     {
       id: 3,
-      img: "https://i.ibb.co/cXFnLLV/3.png",
-      title: "LOUNGEWEAR LOVE",
-      desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
+      img: samsung,
+      smallTitle: 'Hot Items Today',
+      title: "Earphones for you",
+      desc: "GET FLAT 30% OFF FOR NEW ARRIVALS",
       bg: "fbf0f4",
+      price: '115.50'
     },
   ];
 

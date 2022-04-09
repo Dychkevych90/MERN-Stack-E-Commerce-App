@@ -45,6 +45,36 @@ const Slide = styled.div`
 const ImgContainer = styled.div`
   height: 100%;
   flex: 1;
+  position: relative;
+  max-width: 600px;
+
+  .price-block {
+    position: absolute;
+    flex-direction: column;
+    width: 150px;
+    height: 150px;
+    background: rgba(0,0,0,.8);
+    border-radius: 50%;
+    right: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    top: 50%;
+    z-index: 10;
+    font-weight: 500;
+    font-size: 18px;
+    text-align: center;
+    line-height: 35px;
+    span {
+      font-size: 40px;
+      font-weight: 300;
+    }
+
+    & span:last-child{
+      font-size: 16px;
+    }
+  }
 `;
 
 const Image = styled.img`

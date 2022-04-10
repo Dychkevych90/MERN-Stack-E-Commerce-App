@@ -25,8 +25,18 @@ const isLoadingSuccessful = ( isFetching ) => {
   };
 }
 
+const setProducts = ( products ) => {
+  return ( dispatch ) => {
+    dispatch( {
+      type: "PRODUCTS",
+      products: products
+    } );
+  };
+}
+
 export {
   setAllUsers,
   setUser,
   isLoadingSuccessful,
+  setProducts,
 }

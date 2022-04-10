@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {NavLink} from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -16,8 +16,10 @@ const {
 } = icons;
 
 import * as Style from "./styled";
+import AddProduct from "../dialogs/addProduct/addProduct";
 
 const Header = () => {
+  const [showAddProductModal, setShowAddProductModal] = useState( false );
   const currentUser = useSelector( ( state ) => state.user);
   const isLoading = useSelector( ( state ) => state.isFetching )
 
@@ -65,6 +67,11 @@ const Header = () => {
             <NavLink className="center" to={ "/" }>DEVELOPER.</NavLink>
           
             <div className="right">
+              {
+                currentUser.isAdmin && (
+                  <button onClick={() => setShowAddProductModal(!showAddProductModal)} style={{marginRight: '20px'}}>add product</button>
+                )
+              }
             {
               !isLoading && (
                 <>
@@ -95,6 +102,8 @@ const Header = () => {
           </Style.Header>
         </div>
       </div>
+
+      { showAddProductModal && <AddProduct/> }
     </>
   );
 };

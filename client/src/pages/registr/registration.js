@@ -31,7 +31,6 @@ const Register = () => {
 
     try {
       const res = await axios.post(`${server.getApi()}auth/register`, { ...form } );
-      console.log('16', res.data)
       if(res.data) {
         dispatch( DefaultUserAction.setUser(res.data) )
         dispatch( DefaultUserAction.isLoadingSuccessful( true ) );

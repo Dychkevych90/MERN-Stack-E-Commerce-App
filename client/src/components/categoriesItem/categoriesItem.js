@@ -4,17 +4,21 @@ import MainButton from '../layout/button/button';
 
 import * as Style from "./styled";
 
-const CategoriesItem = ({data}) => {
+const CategoriesItem = ( {data, banners = false} ) => {
   return (
     <Style.CategoryWrapItem>
       <img className={ 'image' } src={ data.img } alt={ 'categories' } />
       <div className={ 'info' }>
         <h2 className={ 'title' }>{ data.title }</h2>
-        <MainButton 
-          text={ 'shop now' }
-          backgroundColor={ '#fff' }
-          color={ 'gray' }
-        />
+        {
+          !banners && (
+            <MainButton 
+              text={ 'shop now' }
+              backgroundColor={ '#fff' }
+              color={ 'gray' }
+            />
+          )
+        }
       </div>
     </Style.CategoryWrapItem>
   )

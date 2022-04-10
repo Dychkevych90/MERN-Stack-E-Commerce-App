@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 
-import * as DefaultUserAction from '../../redux-store/action';
+import MainInput from "../../components/layout/mainInput/mainInput";
 
+import * as DefaultUserAction from '../../redux-store/action';
 import ServerSettings from '../../services/serverSettings';
 
 import * as Style from './styled';
-import MainInput from "../../components/layout/mainInput/mainInput";
 
 const Login = () => {
   const [disabled, setDisabled] = useState( true )

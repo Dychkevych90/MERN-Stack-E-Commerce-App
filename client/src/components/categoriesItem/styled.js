@@ -5,7 +5,7 @@ const CategoryWrapItem = styled.div`
   flex: 1;
   margin: 3px;
   position: relative;
-  height: 70vh;
+  height: 50vh;
 
   .image {
     width: 100%;
@@ -24,7 +24,7 @@ const CategoryWrapItem = styled.div`
     align-items: center;
 
     .title {
-        color: #fff;
+        color: ${props => props.bannerStyles ? '#000' : '#fff'};
         margin-bottom: 20px;
         white-space: nowrap;
 

@@ -1,51 +1,82 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+
+import MainButton from "../layout/button/button";
 
 import icons from "../../constants/icons";
 
-import { Product, Info, FullScreenImage, Title, Price, ProductWrapper } from "./styled";
+import {
+  Product,
+  Info,
+  FullScreenImage,
+  Title,
+  Price,
+  ProductWrapper,
+} from "./styled";
 
-const { AddShoppingCartIcon, SearchIcon, FavoriteBorderIcon, CloseIcon } = icons;
+const {
+  AddShoppingCartIcon,
+  SearchIcon,
+  FavoriteBorderIcon,
+  CloseIcon
+} = icons;
 
 const ProductItem = ({ data }) => {
-  const [ ShowFullImage, setShowFullImage ] = useState(false)
+  const [ShowFullImage, setShowFullImage] = useState(false);
 
   const isShowFullImage = () => {
-    const body = document.querySelector('body');
+    const body = document.querySelector("body");
     body.classList.toggle("hidden-scroll");
 
-    setShowFullImage ( !ShowFullImage )
-  }
-  
+    setShowFullImage(!ShowFullImage);
+  };
+
   return (
     <ProductWrapper>
+
+      <div className={"add-to-favorite"}>
+        <FavoriteBorderIcon />
+      </div>
+
       <Product>
-      <div className={ 'circle' } />
-      <img src={ data.img } className={ 'product-image' } alt="product" />
+        <div className={"circle"} />
+        <img src={data.img} className={"product-image"} alt="product" />
 
-      <Info>
-        <div className={ 'icon' }><AddShoppingCartIcon /></div>
-        <button onClick={ isShowFullImage } className={ 'icon' }><SearchIcon /></button>
-        <div className={ 'icon' }><FavoriteBorderIcon /></div>
-      </Info>
-
+        <Info>
+          <div className={"icon"}>
+            <AddShoppingCartIcon />
+          </div>
+          <button onClick={isShowFullImage} className={"icon"}>
+            <SearchIcon />
+          </button>
+          <div className={"icon"}>
+            <FavoriteBorderIcon />
+          </div>
+        </Info>
       </Product>
 
-      <Title>{ data.title }</Title>
+      <Title>{data.title}</Title>
 
-      <Price>{ `$ ${ data.price }` }</Price>
+      <Price>{`$ ${data.price}`}</Price>
 
-      <button className="add-to-cart">Add to card</button>
+      <MainButton
+        text={"Add to card"}
+        fontSize={"14px"}
+        border={"none"}
+        backgroundColor={"teal"}
+        width={"100%"}
+        color={"#fff"}
+      />
 
-      { ShowFullImage && (
+      {ShowFullImage && (
         <FullScreenImage>
-          <img src={ data.img } />
-          <button onClick={ isShowFullImage } className={ "close-button" }>
+          <img src={data.img} />
+          <button onClick={isShowFullImage} className={"close-button"}>
             <CloseIcon />
           </button>
         </FullScreenImage>
-      ) }
+      )}
     </ProductWrapper>
-  )
+  );
 };
 
 export default ProductItem;

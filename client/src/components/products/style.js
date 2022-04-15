@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const ProductsWrap = styled.div`
-  background-color: #fbf0f4;
+  background-color: #fff;
   padding-bottom: 20px;
   text-align: center;
 

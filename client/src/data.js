@@ -1,9 +1,9 @@
 import headphones from "./media/image/headphones1.png";
 import phone from "./media/image/phone.png";
 import samsung from "./media/image/Samsung.png";
-import banner from './media/image/banner-34.jpg'
-import banner1 from './media/image/banner-35.jpg'
-import banner2 from './media/image/banner-36.jpg'
+import banner from './media/image/banner-31.jpg'
+import banner1 from './media/image/banner-32.jpg'
+import banner2 from './media/image/banner-33.jpg'
 
 export const sliderItems = [
   {

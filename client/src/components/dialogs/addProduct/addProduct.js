@@ -18,6 +18,7 @@ const AddProduct = () => {
     desc: '',
     size: '',
     price: '',
+    color: '',
   } );
 
   const dispatch = useDispatch();
@@ -73,7 +74,13 @@ const AddProduct = () => {
           const res = axios.post(`${server.getApi()}products`, product );
           if(res.data){
             dispatch( setProducts( res.data ) )
-            setForm({})
+            setForm({
+              title: '',
+              desc: '',
+              size: '',
+              price: '',
+              color: '',
+            })
           }
         });
       }
@@ -86,10 +93,11 @@ const AddProduct = () => {
     <AddProductModal>
       <form>
         <h2>Add new product</h2>
-        <input placeholder={'title'} name={ 'title' } onChange={ changeHandler }/>
+        <input placeholder={'title'} name={ 'title' } onChange={ changeHandler } required/>
         <input placeholder={'desc'} name={ 'desc' } onChange={ changeHandler }/>
         <input placeholder={'size'} name={ 'size' } onChange={ changeHandler }/>
-        <input placeholder={'price'} name={ 'price' } onChange={ changeHandler }/>
+        <input placeholder={'price'} name={ 'price' } onChange={ changeHandler } required/>
+        <input placeholder={'color'} name={ 'color' } onChange={ changeHandler }/>
         <input placeholder={'image'} type={'file'} onChange={ ( e ) => setFile( e.target.files[0] ) } />
         <input placeholder={'categories'} onChange={ changeCat }/>
         <button onClick={ addNewProduct }>add</button>

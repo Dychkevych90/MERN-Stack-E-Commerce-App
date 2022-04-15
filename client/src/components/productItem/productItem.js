@@ -2,7 +2,7 @@ import React, {useState} from "react";
 
 import icons from "../../constants/icons";
 
-import { ProductItemWrap, Info, FullScreenImage } from "./styled";
+import { Product, Info, FullScreenImage, Title, Price, ProductWrapper } from "./styled";
 
 const { AddShoppingCartIcon, SearchIcon, FavoriteBorderIcon, CloseIcon } = icons;
 
@@ -17,8 +17,8 @@ const ProductItem = ({ data }) => {
   }
   
   return (
-    <>
-      <ProductItemWrap>
+    <ProductWrapper>
+      <Product>
       <div className={ 'circle' } />
       <img src={ data.img } className={ 'product-image' } alt="product" />
 
@@ -27,8 +27,14 @@ const ProductItem = ({ data }) => {
         <button onClick={ isShowFullImage } className={ 'icon' }><SearchIcon /></button>
         <div className={ 'icon' }><FavoriteBorderIcon /></div>
       </Info>
-      
-      </ProductItemWrap>
+
+      </Product>
+
+      <Title>{ data.title }</Title>
+
+      <Price>{ `$ ${ data.price }` }</Price>
+
+      <button className="add-to-cart">Add to card</button>
 
       { ShowFullImage && (
         <FullScreenImage>
@@ -38,7 +44,7 @@ const ProductItem = ({ data }) => {
           </button>
         </FullScreenImage>
       ) }
-    </>
+    </ProductWrapper>
   )
 };
 

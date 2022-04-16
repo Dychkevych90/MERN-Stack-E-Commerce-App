@@ -2,7 +2,7 @@ import React from 'react'
 
 import { ButtonWrap, LinkWrap } from './styled';
 
-const MainButton = ( { text, color, width, fontSize, backgroundColor, border, link = false, } ) => {
+const MainButton = ( { text, color, width, fontSize, backgroundColor, border, link = false, onClick = () => false } ) => {
   return (
     <>
       { link ? (
@@ -23,6 +23,7 @@ const MainButton = ( { text, color, width, fontSize, backgroundColor, border, li
             fontSize={ fontSize }
             backgroundColor={ backgroundColor }
             border={ border }
+            onClick={ onClick }
           >
             { text }
           </ButtonWrap>

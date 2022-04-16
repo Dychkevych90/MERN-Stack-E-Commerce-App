@@ -67,6 +67,7 @@ const App = () => {
         <Route exact path={"/products"} component={ProductsPage} />
         <Route exact path={"/product"} component={Product} />
         <Route exact path={"/cart"} component={Cart} />
+        <Route path="/product/:id" component={Product}/>
         <Route exact path={"/login"} >
           { 
             isLoadingSuccessful

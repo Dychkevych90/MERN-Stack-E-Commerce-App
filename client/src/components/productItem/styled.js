@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const Info = styled.div`
+const Info = styled(Link)`
   opacity: 0;
   width: 100%;
   height: 100%;
@@ -118,11 +119,13 @@ const Price = styled.div`
   margin-bottom: 15px;
 `
 
-const Title = styled.div`
+const Title = styled(Link)`
   font-weight: bold;
   font-size: 18px;
   margin-bottom: 10px;
   cursor: pointer;
+  text-decoration: none;
+  color: #000;
 
   &:hover {
     text-decoration: underline;

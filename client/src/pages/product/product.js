@@ -1,4 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { useLocation } from "react-router-dom";
+
+import ServerSettings from "../../services/serverSettings";
 
 import {
   Button,
@@ -21,6 +25,24 @@ import {
 } from './styled';
 
 const Product = () => {
+  const [product, setProduct] = useState({});
+  const location = useLocation();
+  const id = location.pathname.split("/")[2];
+
+  useEffect(() => {
+    const getProduct = async () => {
+      const server = new ServerSettings();
+
+      try {
+        const res = await axios.get(`${server.getApi()}products/find/${id}`);
+        setProduct(res.data);
+      } catch(err) {
+        console.log(err)
+      }
+    };
+    getProduct();
+  }, [ id ]);
+
   return (
     <div className="container">
       <Wrapper>
@@ -28,7 +50,7 @@ const Product = () => {
           <Image src="https://i.ibb.co/S6qMxwr/jean.jpg" />
         </ImgContainer>
         <InfoContainer>
-          <Title>Denim Jumpsuit</Title>
+          <Title>{ product.title }</Title>
           <Desc>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
             venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at

@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import ProductItem from "../productItem/productItem";
 import MainButton from '../layout/button/button';
+import Pagination from '../pagination/pagination';
 
 import { setProducts } from "../../redux-store/action";
 import ServerSettings from "../../services/serverSettings";
@@ -14,6 +15,9 @@ import { popularProducts } from "../../data";
 import * as Style from './style'
 
 const Products = ({ showButton = true }) => {
+  const [ currentPage, setCurrentPage ] = useState(1);
+  const [ usersPerPage ] = useState( 8 );
+
   const dispatch = useDispatch();
 
   const currentUser = useSelector( ( state ) => state.user);
@@ -40,6 +44,12 @@ const Products = ({ showButton = true }) => {
     setUsers().catch((error) => console.error(error));
     }, [ currentUser ]);
 
+  const lastUserIndex = currentPage * usersPerPage;
+  const firstUserIndex = lastUserIndex - usersPerPage;
+  const showProducts = getAllProducts.slice( firstUserIndex, lastUserIndex )
+  
+  const paginate = pageNumber => setCurrentPage( pageNumber )
+
   return (
     <Style.ProductsWrap>
       <div className={ 'products-header' }>
@@ -48,22 +58,29 @@ const Products = ({ showButton = true }) => {
       </div>
       <div className={ 'products-section' }>
         {
-          getAllProducts.map((item) => {
+          showProducts.map((item) => {
             return (
               <ProductItem data={ item } key={ item._id } />
             )
           })
         }
-        {
+        {/* {
           popularProducts.map((item) => {
             return (
               <ProductItem data={ item } key={ item.id } />
             )
           })
-        }
+        } */}
       </div>
 
-      { showButton && (
+        <Pagination
+          usersPerPage={ usersPerPage }
+          totalUsers={ getAllProducts.length }
+          paginate={ paginate }
+          currentPage={ currentPage }
+        />
+
+      {/* { showButton && (
         <MainButton
           text={ 'Show All' }
           backgroundColor={ '#fff' }
@@ -73,7 +90,7 @@ const Products = ({ showButton = true }) => {
           width={ '160px' }
           link={ true }
         />
-      ) }
+      ) } */}
     </Style.ProductsWrap>
   );
 };

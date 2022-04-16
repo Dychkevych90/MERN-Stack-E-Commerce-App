@@ -12,6 +12,7 @@ import {
   Price,
   ProductWrapper,
 } from "./styled";
+import { LinkWrap } from "../layout/button/styled";
 
 const {
   AddShoppingCartIcon,
@@ -26,9 +27,12 @@ const ProductItem = ({ data }) => {
   const isShowFullImage = () => {
     const body = document.querySelector("body");
     body.classList.toggle("hidden-scroll");
-
     setShowFullImage(!ShowFullImage);
   };
+
+  const addItemToCard = () => {
+    console.log('data', data.id)
+  }
 
   return (
     <ProductWrapper>
@@ -41,7 +45,7 @@ const ProductItem = ({ data }) => {
         <div className={"circle"} />
         <img src={data.img} className={"product-image"} alt="product" />
 
-        <Info>
+        <Info to={`product/${data._id}`}>
           <div className={"icon"}>
             <AddShoppingCartIcon />
           </div>
@@ -54,7 +58,7 @@ const ProductItem = ({ data }) => {
         </Info>
       </Product>
 
-      <Title>{data.title}</Title>
+      <Title to={`product/${data._id}`}>{data.title}</Title>
 
       <Price>{`$ ${data.price}`}</Price>
 
@@ -65,6 +69,7 @@ const ProductItem = ({ data }) => {
         backgroundColor={"teal"}
         width={"100%"}
         color={"#fff"}
+        onClick={ addItemToCard }
       />
 
       {ShowFullImage && (

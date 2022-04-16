@@ -35,6 +35,7 @@ const InputContainer = styled.div`
   height: 40px;
   background-color: white;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   border: 1px solid lightgray;
   border-radius: 4px;
@@ -59,8 +60,10 @@ const Button = styled.button`
   border: none;
   background-color: teal;
   color: white;
+  height: 40px;
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
+  cursor: pointer;
 `;
 
 export { NewsLetterWrap, Input, InputContainer, Button };

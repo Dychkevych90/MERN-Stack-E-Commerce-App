@@ -5,12 +5,9 @@ import icons from "../../constants/icons";
 const { TelegramIcon } = icons;
 
 import {
-  Center,
   ContactItem,
-  Right,
+  Bottom,
   Left,
-  List,
-  ListItem,
   Title,
   Desc,
   SocialContainer,
@@ -43,33 +40,28 @@ const Footer = () => {
           </SocialIcon>
         </SocialContainer>
       </Left>
-      <Center>
-        <Title>Useful Links</Title>
-        <List>
-          <ListItem>Home</ListItem>
-          <ListItem>Cart</ListItem>
-          <ListItem>Man Fashion</ListItem>
-          <ListItem>Woman Fashion</ListItem>
-          <ListItem>Accessories</ListItem>
-          <ListItem>My Account</ListItem>
-          <ListItem>Order Tracking</ListItem>
-          <ListItem>Wishlist</ListItem>
-          <ListItem>Wishlist</ListItem>
-          <ListItem>Terms</ListItem>
-        </List>
-      </Center>
-      <Right>
-        <Title>Contact</Title>
-        <ContactItem>
-          some place in the world
-        </ContactItem>
-        <ContactItem>
-          +1 234 56 78 882 7272
-        </ContactItem>
-        <ContactItem>
-          contactMail@gmail.com
-        </ContactItem>
-      </Right>
+      <Bottom>
+      <div className='footer-item' >
+          <Title>Links</Title>
+          <ul>
+            <ContactItem>Products</ContactItem>
+            <ContactItem>About Us</ContactItem>
+            <ContactItem>Contacts</ContactItem>
+          </ul>
+        </div>
+        <div className='footer-item' >
+          <Title>Contact</Title>
+          <ContactItem>
+            some place in the world
+          </ContactItem>
+          <ContactItem>
+            +1 234 56 78 882 7272
+          </ContactItem>
+          <ContactItem>
+            contactMail@gmail.com
+          </ContactItem>
+        </div>
+      </Bottom>
     </div>
   );
 };

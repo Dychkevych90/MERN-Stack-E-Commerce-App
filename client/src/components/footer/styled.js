@@ -61,10 +61,17 @@ const ListItem = styled.li`
   cursor: pointer;
 `;
 
-const Right = styled.div`
+const Bottom = styled.div`
   flex: 1;
   padding: 20px;
+  display: flex;
+  align-items: flex-start;
   ${mobile({ backgroundColor: "#fff8f8" })}
+
+  .footer-item {
+    margin-right: 40px;
+    min-width: 400px;
+  }
 `;
 
 const ContactItem = styled.div`
@@ -82,7 +89,7 @@ export {
   Payment,
   Center,
   ContactItem,
-  Right,
+  Bottom,
   Left,
   List,
   ListItem,

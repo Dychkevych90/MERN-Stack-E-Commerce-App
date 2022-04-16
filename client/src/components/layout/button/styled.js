@@ -26,6 +26,7 @@ const LinkWrap = styled(NavLink)`
   border: ${ props => props.border ? props.border : 'none' };
   width: ${ props => props.width ? props.width : 'fit-content' };
   text-decoration: none;
+  font-weight: bold;
 `
 
 export {

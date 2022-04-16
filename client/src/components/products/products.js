@@ -42,11 +42,15 @@ const Products = ({ showButton = true }) => {
 
   return (
     <Style.ProductsWrap>
+      <div className={ 'products-header' }>
+        <span>Go Purchase</span>
+        <div>Shop</div>
+      </div>
       <div className={ 'products-section' }>
         {
           getAllProducts.map((item) => {
             return (
-              <ProductItem data={ item } key={ item.id } />
+              <ProductItem data={ item } key={ item._id } />
             )
           })
         }

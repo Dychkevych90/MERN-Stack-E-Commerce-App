@@ -41,11 +41,15 @@ const Bottom = styled.div`
 
 const Info = styled.div`
   flex: 3;
+  margin-right: 10px;
 `;
 
 const Product = styled.div`
   display: flex;
   justify-content: space-between;
+  border: 0.5px solid lightgray;
+  border-radius: 10px;
+  margin-bottom: 10px;
 `;
 
 const ProductDetail = styled.div`
@@ -55,6 +59,7 @@ const ProductDetail = styled.div`
 
 const Image = styled.img`
   width: 200px;
+  height: 200px;
 `;
 
 const Details = styled.div`
@@ -112,7 +117,7 @@ const Summary = styled.div`
   border: 0.5px solid lightgray;
   border-radius: 10px;
   padding: 20px;
-  height: 50vh;
+  height: fit-content;
 `;
 
 const SummaryTitle = styled.h1`

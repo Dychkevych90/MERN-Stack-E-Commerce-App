@@ -19,6 +19,7 @@ const AddProduct = () => {
     size: '',
     price: '',
     color: '',
+    number: 1
   } );
 
   const dispatch = useDispatch();

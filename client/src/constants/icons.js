@@ -8,6 +8,8 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import CloseIcon from '@mui/icons-material/Close';
 import LogoutIcon from '@mui/icons-material/Logout';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 
 const icons = {
     ArrowLeftIcon,
@@ -19,7 +21,9 @@ const icons = {
     TelegramIcon,
     FavoriteBorderIcon,
     CloseIcon,
-    LogoutIcon
+    LogoutIcon,
+    AddIcon,
+    RemoveIcon
 }
 
 export default icons;

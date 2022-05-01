@@ -81,7 +81,7 @@ const Header = () => {
                 </>
               )
             }
-              <NavLink to={ "/" } className="cart_btn">
+              <NavLink to={ "/cart" } className="cart_btn">
                 <AddShoppingCartIcon className="icon" />
               { cart.length >= 1 && <div className="count">{ cart.length }</div> }
               </NavLink>

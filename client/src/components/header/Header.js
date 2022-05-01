@@ -3,6 +3,7 @@ import {NavLink} from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import Announcement from "../announcement/announcement";
+import AddProduct from "../dialogs/addProduct/addProduct";
 
 import { isLoadingSuccessful, setUser } from '../../redux-store/action';
 
@@ -16,12 +17,12 @@ const {
 } = icons;
 
 import * as Style from "./styled";
-import AddProduct from "../dialogs/addProduct/addProduct";
 
 const Header = () => {
   const [showAddProductModal, setShowAddProductModal] = useState( false );
   const currentUser = useSelector( ( state ) => state.user);
   const isLoading = useSelector( ( state ) => state.isFetching )
+  const cart = useSelector( ( state ) => state.cart);
 
   const dispatch = useDispatch();
 
@@ -82,11 +83,11 @@ const Header = () => {
             }
               <NavLink to={ "/" } className="cart_btn">
                 <AddShoppingCartIcon className="icon" />
-                <div className="count" />
+              { cart.length >= 1 && <div className="count">{ cart.length }</div> }
               </NavLink>
               <NavLink to={ "/" } className="cart_btn">
                 <FavoriteBorderIcon className="icon" />
-                <div className="count" />
+              {/* { cart.length >= 1 && <div className="count">{ cart.length }</div> } */}
               </NavLink>
               {
                 isLoading && (

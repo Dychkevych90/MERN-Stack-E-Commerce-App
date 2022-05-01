@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import MainButton from "../layout/button/button";
 
@@ -7,12 +7,10 @@ import icons from "../../constants/icons";
 import {
   Product,
   Info,
-  FullScreenImage,
   Title,
   Price,
   ProductWrapper,
 } from "./styled";
-import { LinkWrap } from "../layout/button/styled";
 
 const {
   AddShoppingCartIcon,
@@ -21,18 +19,11 @@ const {
   CloseIcon
 } = icons;
 
-const ProductItem = ({ data }) => {
-  const [ShowFullImage, setShowFullImage] = useState(false);
-
-  const isShowFullImage = () => {
-    const body = document.querySelector("body");
-    body.classList.toggle("hidden-scroll");
-    setShowFullImage(!ShowFullImage);
-  };
+const ProductItem = ({ data, updateCart }) => {
 
   const addItemToCard = () => {
-    console.log('data', data.id)
-  }
+    updateCart( data );
+  };
 
   return (
     <ProductWrapper>
@@ -49,7 +40,7 @@ const ProductItem = ({ data }) => {
           <div className={"icon"}>
             <AddShoppingCartIcon />
           </div>
-          <button onClick={isShowFullImage} className={"icon"}>
+          <button className={"icon"}>
             <SearchIcon />
           </button>
           <div className={"icon"}>
@@ -72,14 +63,6 @@ const ProductItem = ({ data }) => {
         onClick={ addItemToCard }
       />
 
-      {ShowFullImage && (
-        <FullScreenImage>
-          <img src={data.img} />
-          <button onClick={isShowFullImage} className={"close-button"}>
-            <CloseIcon />
-          </button>
-        </FullScreenImage>
-      )}
     </ProductWrapper>
   );
 };

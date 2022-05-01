@@ -34,9 +34,19 @@ const setProducts = ( products ) => {
   };
 }
 
+const setCart = ( cart ) => {
+  return ( dispatch ) => {
+    dispatch( {
+      type: "CART",
+      cart: cart
+    } );
+  };
+}
+
 export {
   setAllUsers,
   setUser,
   isLoadingSuccessful,
   setProducts,
+  setCart,
 }

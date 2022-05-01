@@ -4,22 +4,19 @@ import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 
 import ProductItem from "../productItem/productItem";
-import MainButton from '../layout/button/button';
 import Pagination from '../pagination/pagination';
 
-import { setProducts } from "../../redux-store/action";
+import { setProducts, setCart } from "../../redux-store/action";
 import ServerSettings from "../../services/serverSettings";
-
-import { popularProducts } from "../../data";
 
 import * as Style from './style'
 
-const Products = ({ showButton = true }) => {
+const Products = () => {
+  //const [ cart, setCart ] = useState([]);
   const [ currentPage, setCurrentPage ] = useState(1);
   const [ usersPerPage ] = useState( 8 );
 
   const dispatch = useDispatch();
-
   const currentUser = useSelector( ( state ) => state.user);
   const getAllProducts = useSelector( ( state ) => state.products )
   console.log('products', getAllProducts)
@@ -50,6 +47,10 @@ const Products = ({ showButton = true }) => {
   
   const paginate = pageNumber => setCurrentPage( pageNumber )
 
+  const updateCart = (item) => {
+    dispatch( setCart( [ ...cart, item  ] ) );
+  }
+
   return (
     <Style.ProductsWrap>
       <div className={ 'products-header' }>
@@ -60,17 +61,10 @@ const Products = ({ showButton = true }) => {
         {
           showProducts.map((item) => {
             return (
-              <ProductItem data={ item } key={ item._id } />
+              <ProductItem data={ item } key={ item._id } updateCart={ updateCart }/>
             )
           })
         }
-        {/* {
-          popularProducts.map((item) => {
-            return (
-              <ProductItem data={ item } key={ item.id } />
-            )
-          })
-        } */}
       </div>
 
         <Pagination
@@ -80,17 +74,6 @@ const Products = ({ showButton = true }) => {
           currentPage={ currentPage }
         />
 
-      {/* { showButton && (
-        <MainButton
-          text={ 'Show All' }
-          backgroundColor={ '#fff' }
-          color={ '#000' }
-          border={ '1px solid #000' }
-          fontSize={ '18px' }
-          width={ '160px' }
-          link={ true }
-        />
-      ) } */}
     </Style.ProductsWrap>
   );
 };

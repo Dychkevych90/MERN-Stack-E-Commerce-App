@@ -2,6 +2,7 @@ const initialState = {
   user: {},
   users: [],
   products: [],
+  cart: [],
   isFetching: false,
 };
 
@@ -30,6 +31,12 @@ const reducer = (state = initialState, action) => {
         ...state,
         products: action.products,
       };
+
+    case "CART":
+      return {
+        ...state,
+        cart: action.cart
+      }
 
     default:
       return state;

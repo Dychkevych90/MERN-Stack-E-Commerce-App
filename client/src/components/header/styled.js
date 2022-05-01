@@ -12,7 +12,7 @@ const Header = styled.header`
   padding: 10px 0;
 
   .left {
-    @media (max-width: 725px){
+    @media (max-width: 725px) {
       display: none;
     }
   }
@@ -23,7 +23,7 @@ const Header = styled.header`
     text-decoration: none;
     color: inherit;
 
-    @media (max-width: 500px){
+    @media (max-width: 500px) {
       font-size: 22px;
     }
   }
@@ -44,12 +44,29 @@ const Header = styled.header`
       text-decoration: none;
       color: #000;
 
-      @media (max-width: 500px){
-      font-size: 12px;
+      @media (max-width: 500px) {
+        font-size: 12px;
       }
     }
     .cart_btn {
       margin-right: 20px;
+      position: relative;
+
+      .count {
+        position: absolute;
+        right: -15px;
+        top: -15px;
+        background-color: teal;
+        min-width: 20px;
+        max-width: fit-content;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        font-size: 14px;
+        color: #fff;
+      }
     }
 
     & .icon {
@@ -62,7 +79,7 @@ const Header = styled.header`
       border: none;
       background-color: transparent;
       cursor: pointer;
-        & .icon {
+      & .icon {
         width: 20px;
         height: 20px;
         object-fit: contain;
@@ -70,7 +87,7 @@ const Header = styled.header`
     }
   }
 
-  @media (max-width: 500px){
+  @media (max-width: 500px) {
     padding: 0;
   }
 `;
@@ -102,7 +119,4 @@ const SearchBar = styled.form`
   }
 `;
 
-export { 
-  Header, 
-  SearchBar 
-};
+export { Header, SearchBar };

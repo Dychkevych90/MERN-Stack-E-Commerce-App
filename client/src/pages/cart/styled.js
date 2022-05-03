@@ -50,6 +50,14 @@ const Product = styled.div`
   border: 0.5px solid lightgray;
   border-radius: 10px;
   margin-bottom: 10px;
+
+  .delete-btn {
+    min-width: 50px;
+    background-color: unset;
+    border: none;
+    border-left: 0.5px solid lightgray;
+    cursor: pointer;
+  }
 `;
 
 const ProductDetail = styled.div`
@@ -99,6 +107,18 @@ const ProductAmountContainer = styled.div`
 const ProductAmount = styled.div`
   font-size: 24px;
   margin: 5px;
+  display: flex;
+  align-items: center;
+
+  button {
+    background-color: unset;
+    border: none;
+    cursor: pointer;
+  }
+
+  span {
+    margin: 0 10px;
+  }
 `;
 
 const ProductPrice = styled.div`

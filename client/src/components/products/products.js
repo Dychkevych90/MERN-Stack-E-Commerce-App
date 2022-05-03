@@ -19,6 +19,7 @@ const Products = () => {
   const dispatch = useDispatch();
   const currentUser = useSelector( ( state ) => state.user);
   const getAllProducts = useSelector( ( state ) => state.products )
+  const cart = useSelector( ( state ) => state.cart);
   console.log('products', getAllProducts)
   
   useEffect(() => {

@@ -6,12 +6,15 @@ import { setCart } from "../../redux-store/action";
 import CONSTANTS from '../../constants/icons';
 
 import * as Style from "./styled";
+import CheckoutDialog from "../../components/dialogs/checkout/checkout";
 
 const { AddIcon, RemoveIcon, DeleteOutlineIcon } = CONSTANTS;
 
 const Cart = () => {
   const [ totalSum, setTotalSum ] = useState([]);
+  const [ showCheckoutModal, setShowCheckoutModal ] = useState(false)
   const getCartItems = useSelector( ( state ) => state.cart );
+  const currentUser = useSelector( (state) => state.user );
   const dispatch = useDispatch();
 
   useEffect( () => {
@@ -115,14 +118,25 @@ const Cart = () => {
                 )
               })
             }
+            <input type={'hidden'} value={ currentUser._id } />
             <Style.SummaryItem type="total">
               <Style.SummaryItemText>Total</Style.SummaryItemText>
               <Style.SummaryItemPrice>$ { totalSum }</Style.SummaryItemPrice>
             </Style.SummaryItem>
-            <Style.Button>CHECKOUT NOW</Style.Button>
+            <Style.Button onClick={() => setShowCheckoutModal(true)}>CHECKOUT NOW</Style.Button>
           </Style.Summary>
         </Style.Bottom>
       </Style.Wrapper>
+
+      {
+        showCheckoutModal && (
+          <CheckoutDialog
+            setShowCheckoutModal={setShowCheckoutModal}
+            totalSum={totalSum}
+          />
+        )
+      }
+
     </div>
   );
 };

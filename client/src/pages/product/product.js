@@ -46,26 +46,23 @@ const Product = () => {
   return (
     <div className="container">
       <Wrapper>
+        <div className="in-development">In development</div> 
         <ImgContainer>
           <Image src="https://i.ibb.co/S6qMxwr/jean.jpg" />
         </ImgContainer>
         <InfoContainer>
           <Title>{ product.title }</Title>
           <Desc>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-            venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at
-            iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget
-            tristique tortor pretium ut. Curabitur elit justo, consequat id
-            condimentum ac, volutpat ornare.
+            { product.desc }
           </Desc>
-          <Price>$ 20</Price>
+          <Price>$ { product.price }</Price>
           <FilterContainer>
-            <Filter>
+            {/* <Filter>
               <FilterTitle>Color</FilterTitle>
               <FilterColor color="black" />
               <FilterColor color="darkblue" />
               <FilterColor color="gray" />
-            </Filter>
+            </Filter> */}
             <Filter>
               <FilterTitle>Size</FilterTitle>
               <FilterSize>

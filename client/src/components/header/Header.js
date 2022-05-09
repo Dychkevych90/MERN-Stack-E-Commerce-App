@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Announcement from "../announcement/announcement";
 import AddProduct from "../dialogs/addProduct/addProduct";
 
-import { isLoadingSuccessful, setUser } from '../../redux-store/action';
+import { isLoadingSuccessful, setUser, setCart } from '../../redux-store/action';
 
 import icons from "../../constants/icons";
 

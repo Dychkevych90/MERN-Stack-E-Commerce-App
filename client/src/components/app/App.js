@@ -14,6 +14,7 @@ import NewsLetter from "../newLetter/newsLetter";
 import ScrollToTop from "../scrollToTop/scrollToTop";
 import Login from "../../pages/login/login";
 import Register from "../../pages/registr/registration";
+import CheckoutPage from "../../pages/checkout/checkout";
 
 import { setAllUsers } from '../../redux-store/action';
 
@@ -67,7 +68,8 @@ const App = () => {
         <Route exact path={"/products"} component={ProductsPage} />
         <Route exact path={"/product"} component={Product} />
         <Route exact path={"/cart"} component={Cart} />
-        <Route path="/product/:id" component={Product}/>
+        <Route path={"/product/:id"} component={Product}/>
+        <Route path={'/checkout'} component={CheckoutPage} />
         <Route exact path={"/login"} >
           { 
             isLoadingSuccessful

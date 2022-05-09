@@ -3,6 +3,22 @@ import styled from 'styled-components'
 const Wrapper = styled.div`
   padding: 50px;
   display: flex;
+
+  .in-development {
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: rgba(0,0,0,.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    color: #fff;
+    font-size: 30px;
+    z-index: 10;
+    text-transform: uppercase;
+  }
 `;
 
 const ImgContainer = styled.div`

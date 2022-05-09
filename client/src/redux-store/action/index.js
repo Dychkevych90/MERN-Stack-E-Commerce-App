@@ -43,10 +43,20 @@ const setCart = ( cart ) => {
   };
 }
 
+const setOrder = ( order ) => {
+  return ( dispatch ) => {
+    dispatch( {
+      type: "ORDER",
+      order: order
+    } );
+  };
+}
+
 export {
   setAllUsers,
   setUser,
   isLoadingSuccessful,
   setProducts,
   setCart,
+  setOrder
 }

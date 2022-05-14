@@ -75,7 +75,7 @@ const CheckoutDialog = ({setShowCheckoutModal, totalSum}) => {
         step && (
           <div className='caption'>
             <div className='title'><b>DEVELOPER.</b></div>
-            <div className='total-price'>Total price $</div>
+            <div className='total-price'>Total price {totalSum} $</div>
             <button onClick={() => setShowCheckoutModal(false)} className='close'>X</button>
         </div>
         )
@@ -105,6 +105,7 @@ const CheckoutDialog = ({setShowCheckoutModal, totalSum}) => {
             <PaymentCard
               onChange={onChange}
               form={form}
+              setStep={setStep}
             />
           )
         }

@@ -1,10 +1,21 @@
 import React from "react";
 
+import icons from "../../../constants/icons";
+
+const {
+  ArrowLeftIcon
+} = icons;
+
 import { CardWrapper } from "./styled";
 
-const PaymentCard = ({onChange, form}) => {
+const PaymentCard = ({onChange, form, setStep}) => {
   return (
     <CardWrapper id="form">
+      <button
+        className="back"
+        onClick={() => setStep(true)}
+      ><ArrowLeftIcon/></button>
+
       <div id="card">
         <div className="header">
           <div className="sticker"></div>
@@ -39,7 +50,7 @@ const PaymentCard = ({onChange, form}) => {
           minLength={12}
           maxLength={12}
           name="creditCardNum"
-          type="number"
+          type="text"
           placeholder="Please enter your card number"
           onChange={onChange} required
         />

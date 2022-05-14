@@ -15,9 +15,9 @@ const SmallDialogWrapper = styled.div`
   font-size: 16px;
   font-weight: 500;
   box-shadow: 0px 5px 19px -2px rgba(0,0,0,0.78);
-  animation: transform 5s ease;
+  //animation: transform 5s ease;
 
-  @keyframes transform {
+  /* @keyframes transform {
     0% {
       right: -150%;
     }
@@ -33,7 +33,7 @@ const SmallDialogWrapper = styled.div`
     100% {
       right: -150%;
     }
-  }
+  } */
 `;
 
 export { SmallDialogWrapper };

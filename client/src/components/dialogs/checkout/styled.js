@@ -109,6 +109,18 @@ const CheckoutWrapper = styled.div`
       margin-bottom: 0;
     } */
   }
+
+  .back  {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    max-height: 20px;
+    justify-content: center;
+    border-radius: 2px;
+    padding: 7px;
+  }
 `;
 
 const CardWrapper = styled.div`

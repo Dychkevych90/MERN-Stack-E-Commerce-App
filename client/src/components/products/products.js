@@ -12,7 +12,6 @@ import ServerSettings from "../../services/serverSettings";
 import * as Style from './style'
 
 const Products = () => {
-  //const [ cart, setCart ] = useState([]);
   const [ currentPage, setCurrentPage ] = useState(1);
   const [ usersPerPage ] = useState( 8 );
 
@@ -52,6 +51,16 @@ const Products = () => {
     dispatch( setCart( [ ...cart, item  ] ) );
   }
 
+  const setFavoriteProduct = (item) => {
+    const index = getAllProducts.findIndex(elem => elem._id === item._id);
+      const old = getAllProducts[index];
+      const newItem = {...old, favorite: !old.favorite}
+
+      const newData = [...getAllProducts.slice(0, index), newItem,  ...getAllProducts.slice(index + 1)];
+
+      dispatch( setProducts( newData ) );
+  }
+
   return (
     <Style.ProductsWrap>
       <div className={ 'products-header' }>
@@ -62,7 +71,12 @@ const Products = () => {
         {
           showProducts.map((item) => {
             return (
-              <ProductItem data={ item } key={ item._id } updateCart={ updateCart }/>
+              <ProductItem
+                data={ item }
+                key={ item._id }
+                updateCart={ updateCart }
+                setFavoriteProduct={ setFavoriteProduct }
+              />
             )
           })
         }

@@ -10,6 +10,7 @@ const ProductSchema = new mongoose.Schema(
     color: { type: String },
     categories: { type: Array },
     price: { type: Number, require: true },
+    favorite: { type: Boolean, default: false },
   },
   { timestamps: true }
 );

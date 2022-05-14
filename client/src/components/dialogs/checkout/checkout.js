@@ -30,7 +30,7 @@ const CheckoutDialog = ({setShowCheckoutModal, totalSum}) => {
   const cart = useSelector( ( state ) => state.cart );
   const order = useSelector( ( state ) => state.order );
   const currentUser = useSelector( ( state ) => state.user );
-  console.log('Your order', order)
+  //console.log('Your order', order)
   const onChange = (event) => {
     setForm({...form, [event.target.name]: event.target.value})
   }

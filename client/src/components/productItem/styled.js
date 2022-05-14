@@ -157,6 +157,8 @@ const ProductWrapper = styled.div`
 
   .add-to-favorite {
     position: absolute;
+    background-color: unset;
+    border: none;
     right: 15px;
     top: 15px;
     cursor: pointer;
@@ -167,6 +169,9 @@ const ProductWrapper = styled.div`
     svg {
       width: 100%;
       height: 100%;
+      path {
+        fill: ${props => props.favorite && 'red'};
+      }
     }
 
     &:hover svg path {

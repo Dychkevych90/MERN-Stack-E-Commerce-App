@@ -97,3 +97,14 @@ const App = () => {
 };
 
 export default App;
+
+/*
+TODO:
+ - validation
+ - favorite products
+ - set Time in slider in redux (optional)
+ - single page
+ - searching (optional)
+ - refactoring
+ - responsive
+*/

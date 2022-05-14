@@ -87,7 +87,7 @@ const Header = () => {
               </NavLink>
               <NavLink to={ "/" } className="cart_btn">
                 <FavoriteBorderIcon className="icon" />
-              {/* { cart.length >= 1 && <div className="count">{ cart.length }</div> } */}
+              {/* { favoriteProduct.length >= 1 && <div className="count">{ favoriteProduct.length }</div> } */}
               </NavLink>
               {
                 isLoading && (

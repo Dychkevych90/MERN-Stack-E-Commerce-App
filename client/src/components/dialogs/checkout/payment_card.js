@@ -19,16 +19,16 @@ const PaymentCard = ({onChange, form}) => {
           </div>
         </div>
         <div className="body">
-          {/* <h2 id="creditCardNumber">{creditCardNum}</h2> */}
+          <h2 id="creditCardNumber">{form.creditCardNum}</h2>
         </div>
         <div className="footer">
           <div>
             <h5>Card Holder</h5>
-            {/* <h3>{cardHolder}</h3> */}
+            <h3>{form.CardHolder}</h3>
           </div>
           <div>
             <h5>Expires</h5>
-            {/* <h3>{expireMonth} / {expireYear}</h3> */}
+            <h3>{form.expireMonth} / {form.expireYear}</h3>
           </div>
         </div>
       </div>
@@ -37,6 +37,7 @@ const PaymentCard = ({onChange, form}) => {
         <h4>Enter card number</h4>
         <input
           minLength={12}
+          maxLength={12}
           name="creditCardNum"
           type="number"
           placeholder="Please enter your card number"

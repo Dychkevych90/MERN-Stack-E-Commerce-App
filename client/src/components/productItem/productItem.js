@@ -19,18 +19,22 @@ const {
   CloseIcon
 } = icons;
 
-const ProductItem = ({ data, updateCart }) => {
+const ProductItem = ({ data, updateCart, setFavoriteProduct }) => {
 
   const addItemToCard = () => {
     updateCart( data );
   };
 
-  return (
-    <ProductWrapper>
+  const addItemToFavorite = () => {
+    setFavoriteProduct( data );
+  };
 
-      <div className={"add-to-favorite"}>
+  return (
+    <ProductWrapper favorite={data.favorite}>
+
+      <button className={"add-to-favorite"} onClick={addItemToFavorite}>
         <FavoriteBorderIcon />
-      </div>
+      </button>
 
       <Product>
         <div className={"circle"} />

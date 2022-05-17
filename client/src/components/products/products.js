@@ -27,12 +27,8 @@ const Products = () => {
       const server = new ServerSettings();
   
       try {
-        if( currentUser.isAdmin ) {
-          const res = await axios.get(`${server.getApi()}products/`);
-          dispatch( setProducts( res.data ) )
-        } else {
-          dispatch( setProducts( [] ) )
-        }
+        const res = await axios.get(`${server.getApi()}products/`);
+        dispatch( setProducts( res.data ) )
       } catch (error) {
         console.log(error)
       }

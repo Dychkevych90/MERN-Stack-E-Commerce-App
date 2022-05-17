@@ -30,7 +30,7 @@ const PaymentCard = ({onChange, form, setStep}) => {
           </div>
         </div>
         <div className="body">
-          <h2 id="creditCardNumber">{form.creditCardNum}</h2>
+          <h2 id="creditCardNumber">{form.creditCardNum !== 0 ? form.creditCardNum.match(/.{1,4}/g).join('-') : ''}</h2>
         </div>
         <div className="footer">
           <div>
@@ -47,8 +47,8 @@ const PaymentCard = ({onChange, form, setStep}) => {
       <div className="input-container mt">
         <h4>Enter card number</h4>
         <input
-          minLength={12}
-          maxLength={12}
+          minLength={16}
+          maxLength={16}
           name="creditCardNum"
           type="text"
           placeholder="Please enter your card number"

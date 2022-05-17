@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Route, Switch, Redirect } from "react-router";
+import { Route, Switch, Redirect, useLocation } from "react-router";
 import axios from "axios";
 
 import { useSelector, useDispatch } from "react-redux";
@@ -22,7 +22,8 @@ import ServerSettings from "../../services/serverSettings";
 
 const App = () => {
   const dispatch = useDispatch();
-
+  const location = useLocation();
+  
   const currentUser = useSelector( ( state ) => state.user);
   const getAllUsers = useSelector( ( state ) => state.users )
   const isLoadingSuccessful = useSelector( ( state ) => state.isFetching )
@@ -50,7 +51,9 @@ const App = () => {
 
   return (
     <>
-      { isLoadingSuccessful && (
+      { location.pathname !== '/login'
+        && location.pathname !== '/registration'
+          && (
         <>
           <Header />
           <ScrollToTop />
@@ -58,13 +61,7 @@ const App = () => {
       )}
 
       <Switch>
-        <Route exact path={"/"} >
-        { 
-          isLoadingSuccessful
-            ? <Home/>
-            : <Redirect to={'/login'}/>
-        }
-        </Route>
+        <Route exact path={"/"} component={Home} />
         <Route exact path={"/products"} component={ProductsPage} />
         <Route exact path={"/product"} component={Product} />
         <Route exact path={"/cart"} component={Cart} />
@@ -86,7 +83,9 @@ const App = () => {
         </Route>
       </Switch>
 
-      { isLoadingSuccessful && (
+      { location.pathname !== '/login'
+        && location.pathname !== '/registration'
+          && (
         <>
           <NewsLetter />
           <Footer />
@@ -107,4 +106,6 @@ TODO:
  - searching (optional)
  - refactoring
  - responsive
+ - add new section with items(clothes?)
+ // str.match(/.{1,4}/g).join('-')
 */

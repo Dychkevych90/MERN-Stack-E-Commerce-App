@@ -11,6 +11,7 @@ import {
   Price,
   ProductWrapper,
 } from "./styled";
+import { useSelector } from "react-redux";
 
 const {
   AddShoppingCartIcon,
@@ -20,9 +21,14 @@ const {
 } = icons;
 
 const ProductItem = ({ data, updateCart, setFavoriteProduct }) => {
+  const currentUser = useSelector((state) => state.user);
 
   const addItemToCard = () => {
-    updateCart( data );
+    if( Object.entries(currentUser).length === 0 ) {
+      alert('Please log in or register!')
+    } else {
+      updateCart( data );
+    }
   };
 
   const addItemToFavorite = () => {

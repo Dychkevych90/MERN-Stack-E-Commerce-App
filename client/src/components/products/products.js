@@ -47,14 +47,20 @@ const Products = () => {
     dispatch( setCart( [ ...cart, item  ] ) );
   }
 
-  const setFavoriteProduct = (item) => {
+  const setFavoriteProduct = async (item) => {
+    const server = new ServerSettings();
     const index = getAllProducts.findIndex(elem => elem._id === item._id);
-      const old = getAllProducts[index];
-      const newItem = {...old, favorite: !old.favorite}
+    const old = getAllProducts[index];
+    const newItem = {...old, favorite: !old.favorite}
 
-      const newData = [...getAllProducts.slice(0, index), newItem,  ...getAllProducts.slice(index + 1)];
+    const newData = [...getAllProducts.slice(0, index), newItem,  ...getAllProducts.slice(index + 1)];
 
+    try {
+      await axios.put(`${server.getApi()}products/${item._id}`, newItem);
       dispatch( setProducts( newData ) );
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (

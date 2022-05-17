@@ -20,9 +20,11 @@ import * as Style from "./styled";
 
 const Header = () => {
   const [showAddProductModal, setShowAddProductModal] = useState(false);
+  const [ favoriteProducts, setFavoriteProducts ] = useState([]);
   const currentUser = useSelector((state) => state.user);
   const isLoading = useSelector((state) => state.isFetching);
   const cart = useSelector((state) => state.cart);
+  const getAllProducts = useSelector( ( state ) => state.products )
 
   const dispatch = useDispatch();
 
@@ -47,6 +49,13 @@ const Header = () => {
       dispatch(setUser({}));
     }
   };
+
+  useEffect(() => {
+    const favorite = getAllProducts.filter(el => el.favorite === true);
+    if(favorite){
+      setFavoriteProducts(favorite)
+    }
+  }, [ getAllProducts ])
 
   return (
     <>
@@ -96,7 +105,7 @@ const Header = () => {
                   </NavLink>
                   <NavLink to={"/"} className="cart_btn">
                     <FavoriteBorderIcon className="icon" />
-                    {/* { favoriteProduct.length >= 1 && <div className="count">{ favoriteProduct.length }</div> } */}
+                    { favoriteProducts.length >= 1 && <div className="count">{ favoriteProducts.length }</div> }
                   </NavLink>
                 </>
               )}

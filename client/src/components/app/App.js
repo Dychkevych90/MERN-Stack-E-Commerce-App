@@ -107,5 +107,6 @@ TODO:
  - refactoring
  - responsive
  - add new section with items(clothes?)
- // str.match(/.{1,4}/g).join('-')
+ - success modal when finish order
+ - show small modal when log out
 */

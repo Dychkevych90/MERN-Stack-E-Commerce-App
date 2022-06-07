@@ -99,14 +99,14 @@ export default App;
 
 /*
 TODO:
- - validation
+ - validation?
  - favorite products
  - set Time in slider in redux (optional)
  - single page
  - searching (optional)
- - refactoring
- - responsive
  - add new section with items(clothes?)
  - success modal when finish order
  - show small modal when log out
+ - refactoring
+ - responsive
 */

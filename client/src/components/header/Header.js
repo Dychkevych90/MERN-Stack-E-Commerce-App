@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import Announcement from "../announcement/announcement";
 import AddProduct from "../dialogs/addProduct/addProduct";
+import LogoutDialogs from '../dialogs/logoutDialog/logoutDialog'
 
 import {
   isLoadingSuccessful,
@@ -13,14 +14,21 @@ import {
 
 import icons from "../../constants/icons";
 
-const { AddShoppingCartIcon, SearchIcon, FavoriteBorderIcon, LogoutIcon } =
+const {
+  AddShoppingCartIcon,
+  SearchIcon,
+  FavoriteBorderIcon,
+  LogoutIcon,
+} =
   icons;
 
 import * as Style from "./styled";
 
 const Header = () => {
   const [showAddProductModal, setShowAddProductModal] = useState(false);
-  const [ favoriteProducts, setFavoriteProducts ] = useState([]);
+  const [favoriteProducts, setFavoriteProducts ] = useState([]);
+  const [isShowLogoutModal, setIsShowLogoutModal] = useState(false);
+
   const currentUser = useSelector((state) => state.user);
   const isLoading = useSelector((state) => state.isFetching);
   const cart = useSelector((state) => state.cart);
@@ -110,7 +118,7 @@ const Header = () => {
                 </>
               )}
               {isLoading && (
-                <button className="logout-btn" onClick={(e) => LogOut(e)}>
+                <button className="logout-btn" onClick={() => setIsShowLogoutModal(true)}>
                   <LogoutIcon />
                 </button>
               )}
@@ -120,6 +128,13 @@ const Header = () => {
       </div>
 
       {showAddProductModal && <AddProduct />}
+      {
+        isShowLogoutModal && (
+          <LogoutDialogs 
+            setIsShowLogoutModal={setIsShowLogoutModal}
+          />
+        )
+      }
     </>
   );
 };

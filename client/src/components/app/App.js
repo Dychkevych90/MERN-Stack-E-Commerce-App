@@ -109,4 +109,5 @@ TODO:
  - show small modal when log out
  - refactoring
  - responsive
+ - add user section in header(name, surname, download photo)
 */

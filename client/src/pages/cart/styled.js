@@ -2,6 +2,10 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   padding: 20px;
+
+  @media (max-width: 700px) {
+    padding: 0;
+  }
 `;
 
 const Title = styled.h1`
@@ -14,6 +18,13 @@ const Top = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 20px;
+
+  @media (max-width: 700px) {
+    padding: 20px 0;
+  }
+  @media (max-width: 550px) {
+    flex-direction: column;
+  }
 `;
 
 const TopButton = styled.button`
@@ -24,6 +35,10 @@ const TopButton = styled.button`
   background-color: ${(props) =>
     props.type === "filled" ? "black" : "transparent"};
   color: ${(props) => props.type === "filled" && "white"};
+
+  @media (max-width: 550px) {
+    margin-bottom: 20px;
+  }
 `;
 
 const TopTexts = styled.div``
@@ -37,11 +52,19 @@ const TopText = styled.span`
 const Bottom = styled.div`
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 1200px) {
+    flex-direction: column-reverse;
+  }
 `;
 
 const Info = styled.div`
   flex: 3;
   margin-right: 10px;
+
+  @media (max-width: 1200px) {
+    margin-right: 0;
+  }
 `;
 
 const Product = styled.div`
@@ -57,17 +80,30 @@ const Product = styled.div`
     border: none;
     border-left: 0.5px solid lightgray;
     cursor: pointer;
+
+    @media (max-width: 400px) {
+    min-width: unset;
+    padding: 0 2px;
+  }
   }
 `;
 
 const ProductDetail = styled.div`
   flex: 2;
   display: flex;
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+  }
 `;
 
 const Image = styled.img`
   width: 200px;
   height: 200px;
+
+  @media (max-width: 400px) {
+    display: none;
+  }
 `;
 
 const Details = styled.div`
@@ -75,6 +111,14 @@ const Details = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+
+  @media (max-width: 700px) {
+    padding: 10px;
+    span {
+      font-size: 14px;
+      padding-bottom: 5px;
+    }
+  }
 `;
 
 const ProductName = styled.span``;
@@ -124,6 +168,10 @@ const ProductAmount = styled.div`
 const ProductPrice = styled.div`
   font-size: 30px;
   font-weight: 200;
+
+  @media (max-width: 700px) {
+    font-size: 20px;
+  }
 `;
 
 const Hr = styled.hr`
@@ -138,6 +186,10 @@ const Summary = styled.div`
   border-radius: 10px;
   padding: 20px;
   height: fit-content;
+
+  @media (max-width: 1200px) {
+    margin-bottom: 20px;
+  }
 `;
 
 const SummaryTitle = styled.h1`

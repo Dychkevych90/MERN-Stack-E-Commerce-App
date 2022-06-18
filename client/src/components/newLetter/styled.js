@@ -41,6 +41,10 @@ const InputContainer = styled.div`
   border-radius: 4px;
   ${mobile({ width: "80%" })}
 
+  @media (max-width: 900px){
+      width: 80%;
+    }
+
   @media (max-width: 500px){
       width: 100%;
     }

@@ -6,6 +6,11 @@ const Left = styled.div`
   display: flex;
   flex-direction: column;
   padding: 20px;
+
+  @media (max-width: 700px) {
+    padding: 0;
+    margin-bottom: 20px;
+  }
 `;
 
 const Logo = styled.h1``;
@@ -70,7 +75,11 @@ const Bottom = styled.div`
 
   .footer-item {
     margin-right: 40px;
-    min-width: 400px;
+    flex: 50%;
+  }
+
+  @media (max-width: 700px) {
+    padding: 0;
   }
 `;
 

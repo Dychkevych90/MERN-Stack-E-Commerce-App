@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -19,15 +19,16 @@ const {
   SearchIcon,
   FavoriteBorderIcon,
   LogoutIcon,
-} =
-  icons;
+} = icons;
 
 import * as Style from "./styled";
+import FavoriteProductsDialog from "../dialogs/favotiteProductsModal/favoriteProducts";
 
 const Header = () => {
   const [showAddProductModal, setShowAddProductModal] = useState(false);
   const [favoriteProducts, setFavoriteProducts ] = useState([]);
   const [isShowLogoutModal, setIsShowLogoutModal] = useState(false);
+  const [isShowFavoriteModal, setShowFavoriteModal] = useState(false);
 
   const currentUser = useSelector((state) => state.user);
   const isLoading = useSelector((state) => state.isFetching);
@@ -35,6 +36,30 @@ const Header = () => {
   const getAllProducts = useSelector( ( state ) => state.products )
 
   const dispatch = useDispatch();
+  const ref = useRef();
+
+  const useOnClickOutside = (ref, handler) => {
+    useEffect(
+      () => {
+        const listener = (event) => {
+          // Do nothing if clicking ref's element or descendent elements
+          if (!ref.current || ref.current.contains(event.target)) {
+            return;
+          }
+          handler(event);
+        };
+        document.addEventListener("mousedown", listener);
+        document.addEventListener("touchstart", listener);
+        return () => {
+          document.removeEventListener("mousedown", listener);
+          document.removeEventListener("touchstart", listener);
+        };
+      },
+      [ref, handler]
+    );
+  }
+
+  useOnClickOutside(ref, () => setShowFavoriteModal(false));
 
   useEffect(() => {
     window.addEventListener("scroll", isHeaderSticky);
@@ -111,10 +136,18 @@ const Header = () => {
                       <div className="count">{cart.length}</div>
                     )}
                   </NavLink>
-                  <NavLink to={"/"} className="cart_btn">
+                  <button className="cart_btn" onClick={() => setShowFavoriteModal(!isShowFavoriteModal)}>
                     <FavoriteBorderIcon className="icon" />
                     { favoriteProducts.length >= 1 && <div className="count">{ favoriteProducts.length }</div> }
-                  </NavLink>
+                    {
+                      isShowFavoriteModal && (
+                        <FavoriteProductsDialog
+                        favoriteProducts={favoriteProducts}
+                        outSideClick={ref}
+                        />
+                      )
+                    }
+                  </button>
                 </>
               )}
               {isLoading && (

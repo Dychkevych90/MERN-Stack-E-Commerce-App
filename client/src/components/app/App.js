@@ -100,7 +100,7 @@ export default App;
 /*
 TODO:
  - validation?
- - favorite products
+ - favorite products DONE!
  - set Time in slider in redux (optional)
  - single page
  - searching (optional)
@@ -110,4 +110,5 @@ TODO:
  - refactoring
  - responsive
  - add user section in header(name, surname, download photo)
+ - deploy
 */

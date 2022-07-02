@@ -11,6 +11,7 @@ import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import ClearIcon from '@mui/icons-material/Clear';
 
 const icons = {
     ArrowLeftIcon,
@@ -25,7 +26,8 @@ const icons = {
     LogoutIcon,
     AddIcon,
     RemoveIcon,
-    DeleteOutlineIcon
+    DeleteOutlineIcon,
+    ClearIcon
 }
 
 export default icons;

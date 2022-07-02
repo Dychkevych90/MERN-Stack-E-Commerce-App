@@ -51,7 +51,10 @@ const Header = styled.header`
     .cart_btn {
       margin-right: 20px;
       position: relative;
-
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      
       .count {
         position: absolute;
         right: -15px;
